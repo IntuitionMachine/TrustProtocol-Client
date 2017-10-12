@@ -7,6 +7,7 @@ import ApolloClient, { createNetworkInterface } from "apollo-client";
 import { IndexPage } from "./IndexPage";
 import { ApolloProvider } from "react-apollo";
 import { Layout } from "./Layout";
+import { ConfirmEmailPageWithMutations } from "./ConfirmEmailPage";
 
 const networkInterface = createNetworkInterface({ uri: "https://api.graph.cool/simple/v1/cj8m6ujrq0evm0167mhdi4mta"});
 
@@ -17,7 +18,8 @@ const client = new ApolloClient({
 
 const App = () => (
     <div> 
-      <Route path="/" component={IndexPage}/>
+      <Route path="/confirmation/:confirmationToken" component={ConfirmEmailPageWithMutations}/>
+      <Route exact={true} path="/" component={IndexPage}/>
      </div>
 );
 

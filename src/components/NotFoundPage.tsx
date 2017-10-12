@@ -1,10 +1,10 @@
 /**
  * Created by gopi on 1/8/17.
  */
-import * as React from 'react';
+import * as React from "react";
 
-export default class NotFoundPage extends React.Component {
-    render() {
+export class NotFoundPage extends React.Component {
+    public render() {
         return (
             <div className="not-found">
                 <h1>404</h1>
@@ -13,4 +13,3 @@ export default class NotFoundPage extends React.Component {
         );
     }
 }
-                    // <Link to="/">Go back to the main page</Link>
