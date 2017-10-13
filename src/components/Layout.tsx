@@ -12,20 +12,20 @@ const Header = styled.div`
 `;
 
 export class Layout extends React.Component {
-    public render () {
-      return (
-        <div className="app-container">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
-                <Header>
-                TrustToken Giveaway	
+  public render() {
+    return (
+      <div className="app-container">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12">
+              <Header>
+                TrustToken Giveaway
                 </Header>
-              </div>
             </div>
           </div>
-          <div className="app-content">{this.props.children}</div>
         </div>
-      );
-    }
+        <div className="app-content">{this.props.children}</div>
+      </div>
+    );
+  }
 }
