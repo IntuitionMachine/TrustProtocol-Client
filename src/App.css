@@ -1,24 +1,9 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto';
   color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  background: #f0f2f0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f0f2f0, #000c40); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f0f2f0, #000c40); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

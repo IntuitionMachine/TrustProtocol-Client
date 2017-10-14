@@ -30,6 +30,7 @@ const Routes = () => (
   <div>
     <Route path="/confirmation/:confirmationToken" component={ConfirmEmailPageWithMutations} />
     <Route exact={true} path="/" component={LandingPage} />
+    <Route exact={true} path="/referrer/:referrerId" component={LandingPage} />
   </div>
 );
 

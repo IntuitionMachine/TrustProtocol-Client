@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as moment from "moment";
 import styled from "styled-components";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
@@ -9,13 +10,14 @@ import * as queryString from "query-string";
 import { Field, reduxForm, formValueSelector } from "redux-form";
 import { connect } from "react-redux";
 import { email, ethereumAddress, required } from "../utils/validators";
+import { CountDown } from "./CountDown";
 
 const CREATE_USER_MUTATION = gql`
-mutation createUser($email: String!, $address: String!, $refererId: ID) {
-  createUser(email: $email, address: $address, refererId: $refererId) {
+mutation createUser($email: String!, $ethereumAddress: String!, $referrerId: ID) {
+  createUser(email: $email, ethereumAddress: $ethereumAddress, referrerId: $referrerId) {
     id
     email
-    address
+    ethereumAddress
   }
 }
 `;
@@ -24,18 +26,54 @@ const Error = styled.div`
   color: red;
 `;
 
+const Heading = styled.div`
+  font-size: 100px;
+  text-align: center;
+  margin-top: 300px;
+`;
+
+const SubHeading = styled.div`
+  font-size: 40px;
+  text-align: center;
+  margin-top: 100px;
+`;
+
+const DeliveryText = styled.div`
+  display: inline-block;
+  font-size: 40px;
+`;
+
+const CountDownWrapper = styled.div`
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const SuccessMessage = (props) => (
   <div>
     <h3> Please confirm your email </h3>
     <p>We've sent you a confirmation email. Please click on the provided link </p>
     <h3> Share this link with your friends! </h3>
-    {`${window.location.host}/?referer=${props.newUser.id}`}
+    {`${window.location.host}/referrer/${props.newUser.id}`}
   </div>
 );
+
+const Input = styled.input`
+  width: 200px;
+`;
+
+const CenteredImg = styled.img`
+  display: block;
+  margin: 0 auto;
+  width: 96px;
+  height: 96px;
+`;
 
 interface PropsType {
   formProps: any;
   newUser: any;
+  match: { params: { referrerId?: string } };
   submissionError: string | undefined;
   hasSucceeded: string | undefined;
   createUser: (variables: any) => any;
@@ -53,7 +91,7 @@ const renderField = ({
     <div>
       <label htmlFor={name}>{label}</label>
       <div>
-        <input {...input} className="form-control" placeholder={placeholder} type={type} />
+        <Input {...input} placeholder={placeholder} type={type} />
         {touched && (error && <Error>{error}</Error>)}
       </div>
     </div>
@@ -62,8 +100,18 @@ const renderField = ({
 const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: PropsType) => {
   console.log("props", props);
   const { handleSubmit, pristine, reset, submitting } = props.formProps;
+  const deadline = moment().add(7, "days");
+
   return (
     <div className="container">
+      <div className="row">
+        <Heading>Join the Frontier</Heading>
+        <SubHeading>Claim your piece of the world's first tokenized asset.</SubHeading>
+        <CountDownWrapper>
+          <DeliveryText>Tokens delivered in</DeliveryText>
+          <CountDown deadline={deadline} />
+        </CountDownWrapper>
+      </div>
       <div className="row">
         <div className="col-sm-12">
           {props.hasSucceeded &&
@@ -100,21 +148,20 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
 };
 
 const LandingPage = compose(
+  withRouter,
   graphql(CREATE_USER_MUTATION, { name: "createUser" }),
   withState("submissionError", "setSubmissionError", undefined),
   withState("hasSucceeded", "setHasSucceeded", false),
   withState("newUser", "setNewUser", undefined),
   withHandlers({
     onSubmit: (props: any) => async ({ email, ethereumAddress }) => {
-      console.log("submitting");
       props.setSubmissionError(undefined);
+      const { referrerId } = props.match.params; // can be undefined
       try {
-        const result = await props.createUser({ variables: { email, address: ethereumAddress } });
+        const result = await props.createUser({ variables: { email, ethereumAddress, referrerId } });
         props.setNewUser(result.data.createUser);
         props.setHasSucceeded(true);
-        console.log("success", result);
       } catch (error) {
-        console.error(error);
         if (error.message.includes("GraphQL error: A unique constraint would be violated on User.")) {
           props.setSubmissionError("Email or ethereum address already exists.");
         }
@@ -122,7 +169,6 @@ const LandingPage = compose(
     },
   }),
   reduxForm({ propNamespace: "formProps", form: "signupForm" }),
-  withRouter,
 )(LandingPagePresentational);
 
 export { LandingPage };
