@@ -138,8 +138,6 @@ const SuccessWrapper = styled.div`
 const SuccessMessage = (props) => (
   <SuccessWrapper>
     <p>Confirm your email address to recieve your tokens when delievery happens.</p>
-    {/*`${window.location.host}/referrer/${props.newUser.id}`*/}
-
     <p>Share the link below with your friends to earn extra tokens.</p>
     <CopyLink link={`${window.location.host}/referrer/lksjdfaldjf892374jkds`} />
   </SuccessWrapper>
