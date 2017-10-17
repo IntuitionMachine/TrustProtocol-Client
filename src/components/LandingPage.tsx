@@ -135,16 +135,13 @@ const SuccessWrapper = styled.div`
   font-weight: bold;
 `;
 
-const SuccessMessage = (props) => {
-  console.log("success props", props);
-  return (
-    <SuccessWrapper>
-      <p>Confirm your email address to recieve your tokens when delievery happens.</p>
-      <p>Share the link below with your friends to earn extra tokens.</p>
-      <CopyLink link={`${window.location.host}/referrer/${props.newUser.id}`} />
-    </SuccessWrapper>
-  );
-};
+const SuccessMessage = (props) => (
+  <SuccessWrapper>
+    <p>Confirm your email address to recieve your tokens when delievery happens.</p>
+    <p>Share the link below with your friends to earn extra tokens.</p>
+    <CopyLink link={`${window.location.host}/referrer/${props.newUser.id}`} />
+  </SuccessWrapper>
+);
 
 interface PropsType {
   formProps: any;
@@ -155,18 +152,15 @@ interface PropsType {
   createUser: (variables: any) => any;
 }
 
-const renderField = (props) => {
-  const {
-    input,
-    name,
-    label,
-    type,
-    placeholder,
-    className,
-    meta: { touched, error, warning },
-  } = props;
-  console.log("props", props);
-  return (
+const renderField = ({
+  input,
+  name,
+  label,
+  type,
+  placeholder,
+  className,
+  meta: { touched, error, warning },
+  }) => (
     <InputWrapper>
       <InputLabel htmlFor={name} invalid={!!(touched && error)}>{label}</InputLabel>
       <div>
@@ -175,11 +169,9 @@ const renderField = (props) => {
       </div>
     </InputWrapper>
   );
-};
 
 const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: PropsType) => {
   const { handleSubmit, pristine, reset, submitting } = props.formProps;
-  console.log("formProps", props.formProps);
   const deadline = moment().add(7, "days");
 
   return (
