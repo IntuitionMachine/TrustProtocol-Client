@@ -26,7 +26,7 @@ const STRINGS = {
 const CREATE_USER_MUTATION = gql`
 mutation createUser($email: String!, $ethereumAddress: String!, $referrerId: ID) {
   createUser(email: $email, ethereumAddress: $ethereumAddress, referrerId: $referrerId) {
-    ethereumAddress
+    id
   }
 }
 `;
@@ -135,13 +135,16 @@ const SuccessWrapper = styled.div`
   font-weight: bold;
 `;
 
-const SuccessMessage = (props) => (
-  <SuccessWrapper>
-    <p>Confirm your email address to recieve your tokens when delievery happens.</p>
-    <p>Share the link below with your friends to earn extra tokens.</p>
-    <CopyLink link={`${window.location.host}/referrer/lksjdfaldjf892374jkds`} />
-  </SuccessWrapper>
-);
+const SuccessMessage = (props) => {
+  console.log("success props", props);
+  return (
+    <SuccessWrapper>
+      <p>Confirm your email address to recieve your tokens when delievery happens.</p>
+      <p>Share the link below with your friends to earn extra tokens.</p>
+      <CopyLink link={`${window.location.host}/referrer/${props.newUser.id}`} />
+    </SuccessWrapper>
+  );
+};
 
 interface PropsType {
   formProps: any;
