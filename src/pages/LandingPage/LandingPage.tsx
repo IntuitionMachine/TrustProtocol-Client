@@ -9,15 +9,16 @@ import * as _ from "lodash";
 import * as queryString from "query-string";
 import { Field, reduxForm, formValueSelector } from "redux-form";
 import { connect } from "react-redux";
-import { email, ethereumAddress, required } from "../utils/validators";
-import { CountDown } from "./CountDown";
+import { email, ethereumAddress, required } from "../../utils/validators";
+import { CountDown } from "../../components/CountDown";
 import DocumentTitle = require("react-document-title");
-import { CopyLink } from "./CopyLink";
-
-const COLORS = {
-  error: "pink",
-  text: "white",
-};
+import { CopyLink } from "../../components/CopyLink";
+import {
+  SuccessWrapper, InputWrapper, InputLabel,
+  FieldError, Input, Heading, CountDownWrapper,
+  SubHeading, DeliveryText, SignupForm, FormError,
+  Button,
+} from "./LandingPageStyles";
 
 const STRINGS = {
   tokenName: "SpecialCoin",
@@ -29,110 +30,6 @@ mutation createUser($email: String!, $ethereumAddress: String!, $referrerId: ID)
     id
   }
 }
-`;
-
-const FormError = styled.div`
-  color: ${COLORS.error};
-  font-size: 20px;
-`;
-
-const FieldError = styled.div`
-  margin-top: 4px;
-  color: ${COLORS.error};
-  font-size: 14px;
-`;
-
-const Heading = styled.div`
-  font-size: 100px;
-  text-align: center;
-  margin-top: 300px;
-`;
-
-const SubHeading = styled.div`
-  font-size: 40px;
-  text-align: center;
-  margin-top: 100px;
-`;
-
-const DeliveryText = styled.div`
-  display: inline-block;
-  font-size: 40px;
-`;
-
-const CountDownWrapper = styled.div`
-  margin-top: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Button = styled.button`
-  background: none;
-  outline: none;
-  width: 300px;
-  height: 55px;
-  border: 1px solid ${COLORS.text};
-  color: ${COLORS.text};
-  font-size: 15px;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-top: 40px;
-
-  transition: all 0.3s ease 0s;
-  &:hover {
-    background-color: rgba(255,255,255,0.2);
-  }
-`;
-
-const InputLabel: any = styled.label`
-  color: ${(props: any) => props.invalid ? COLORS.error : COLORS.text};
-`;
-
-const InputWrapper = styled.div`
-  margin-top: 40px;
-`;
-
-const Input = styled.input`
-  width: 500px;
-  height: 30px;
-  background: none;
-  color: ${COLORS.text};
-  font-size: 18px;
-  font-weight: lighter;
-  padding: 5px;
-  outline: none;
-
-  border: none;
-  border-bottom: 1px solid;
-  border-color: ${(props: any) => props.invalid ? COLORS.error : COLORS.text};
-
-  &::placeholder {
-    color: ${COLORS.text};
-    font-size: 18px;
-    font-weight: lighter;
-  }
-`;
-
-const CenteredImg = styled.img`
-  display: block;
-  margin: 0 auto;
-  width: 96px;
-  height: 96px;
-`;
-
-const SignupForm = styled.form`
-  margin-top: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
-
-const SuccessWrapper = styled.div`
-  margin-top: 150px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
 `;
 
 const SuccessMessage = (props) => (

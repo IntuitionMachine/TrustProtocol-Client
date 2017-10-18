@@ -4,10 +4,10 @@ import ApolloClient, { createNetworkInterface } from "apollo-client";
 import { IndexPage } from "./components/IndexPage";
 import { ApolloProvider } from "react-apollo";
 import { Layout } from "./components/Layout";
-import { ConfirmEmailPageWithMutations } from "./components/ConfirmEmailPage";
+import { ConfirmEmailPageWithMutations } from "./pages/ConfirmEmailPage";
 import { createStore, combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
-import { LandingPage } from "./components/LandingPage";
+import { LandingPage } from "./pages/LandingPage/LandingPage";
 
 const networkInterface = createNetworkInterface({ uri: "https://api.graph.cool/simple/v1/cj8m6ujrq0evm0167mhdi4mta" });
 
@@ -28,9 +28,9 @@ const store = createStore(
 
 const Routes = () => (
   <div>
-    <Route path="/confirmation/:confirmationToken" component={ConfirmEmailPageWithMutations} />
     <Route exact={true} path="/" component={LandingPage} />
     <Route exact={true} path="/referrer/:referrerId" component={LandingPage} />
+    <Route path="/confirm/:confirmationToken" component={ConfirmEmailPageWithMutations} />
   </div>
 );
 
