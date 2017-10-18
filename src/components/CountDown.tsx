@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as moment from "moment";
+import MediaQuery from "react-responsive";
 import styled from "styled-components";
+
 const Wrapper = styled.div`
 	font-family: Roboto;
 	color: #fff;
@@ -19,17 +21,17 @@ const CounterPane = styled.div`
   margin-left: 8px;
 `;
 
-const Readout = styled.span`
+const Readout: any = styled.span`
   padding: 15px;
-  font-size: 60px;
+  font-size: ${(props: any) => props.large ? "60px" : "35px"};
 	border-radius: 3px;
 	background: rgba(0, 0, 0, 0.1);
 	display: inline-block;
 `;
 
-const Label = styled.div`
+const Label: any = styled.div`
 	padding-top: 5px;
-  font-size: 14px;
+  font-size: ${(props: any) => props.large ? "14px" : "10px"};
   letter-spacing: 2px;
 `;
 
@@ -57,22 +59,35 @@ class CountDown extends React.Component<any, any> {
 
   public render() {
     return (
+      <div>
+        <MediaQuery query="(min-width: 550px)">
+          {this.renderCountDown(true)}
+        </MediaQuery>
+        <MediaQuery query="(max-width: 550px)">
+          {this.renderCountDown(false)}
+        </MediaQuery>
+      </div>
+    );
+  }
+
+  private renderCountDown(large: boolean) {
+    return (
       <Wrapper>
         <CounterPane>
-          <Readout>{this.state.days}</Readout>
-          <Label>Days</Label>
+          <Readout large={large}>{this.state.days}</Readout>
+          <Label large={large}>Days</Label>
         </CounterPane>
         <CounterPane>
-          <Readout>{this.state.hours}</Readout>
-          <Label>Hours</Label>
+          <Readout large={large}>{this.state.hours}</Readout>
+          <Label large={large}>Hours</Label>
         </CounterPane>
         <CounterPane>
-          <Readout>{this.state.minutes}</Readout>
-          <Label>Minutes</Label>
+          <Readout large={large}>{this.state.minutes}</Readout>
+          <Label large={large}>Minutes</Label>
         </CounterPane>
         <CounterPane>
-          <Readout>{this.state.seconds}</Readout>
-          <Label>Seconds</Label>
+          <Readout large={large}>{this.state.seconds}</Readout>
+          <Label large={large}>Seconds</Label>
         </CounterPane>
       </Wrapper>
     );

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const FormError = styled.div`
   color: ${COLORS.error};
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 export const FieldError = styled.div`
@@ -34,6 +34,7 @@ export const SubHeading = styled.div`
 export const DeliveryText = styled.div`
   display: inline-block;
   font-size: 40px;
+  margin-bottom: 20px;
 `;
 
 export const CountDownWrapper = styled.div`
@@ -41,12 +42,13 @@ export const CountDownWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: row wrap;
 `;
 
 export const Button = styled.button`
   background: none;
   outline: none;
-  width: 300px;
+  width: 310px;
   height: 55px;
   border: 1px solid ${COLORS.text};
   color: ${COLORS.text};
@@ -75,7 +77,7 @@ export const Input = styled.input`
   height: 30px;
   background: none;
   color: ${COLORS.text};
-  font-size: 18px;
+  font-size: 15px;
   font-weight: lighter;
   padding: 5px;
   outline: none;

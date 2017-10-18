@@ -75,45 +75,37 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
   return (
     <DocumentTitle title={STRINGS.tokenName}>
       <Wrapper>
-        <div className="container">
-          <div className="row">
-            <Heading>Join the Frontier</Heading>
-            <SubHeading>Claim your piece of the world's first tokenized asset.</SubHeading>
-            <CountDownWrapper>
-              <DeliveryText>Tokens delivered in</DeliveryText>
-              <CountDown deadline={deadline} />
-            </CountDownWrapper>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              {props.hasSucceeded &&
-                <SuccessMessage newUser={props.newUser} />
-              }
-              {!props.hasSucceeded &&
-                <SignupForm onSubmit={handleSubmit}>
-                  {props.submissionError && <FormError>{props.submissionError}</FormError>} <Field
-                    name="email"
-                    label="Email"
-                    component={renderField}
-                    type="text"
-                    validate={[required, email]}
-                  />
-                  <Field
-                    name="ethereumAddress"
-                    label="Ethereum Address"
-                    component={renderField}
-                    type="text"
-                    validate={[required, ethereumAddress]}
-                  />
+        <Heading>Join the Frontier</Heading>
+        <SubHeading>Claim your piece of the world's first tokenized asset.</SubHeading>
+        <CountDownWrapper>
+          <DeliveryText>Tokens delivered in</DeliveryText>
+          <CountDown deadline={deadline} />
+        </CountDownWrapper>
+        {props.hasSucceeded &&
+          <SuccessMessage newUser={props.newUser} />
+        }
+        {!props.hasSucceeded &&
+          <SignupForm onSubmit={handleSubmit}>
+            {props.submissionError && <FormError>{props.submissionError}</FormError>} <Field
+              name="email"
+              label="Email"
+              component={renderField}
+              type="text"
+              validate={[required, email]}
+            />
+            <Field
+              name="ethereumAddress"
+              label="Ethereum Address"
+              component={renderField}
+              type="text"
+              validate={[required, ethereumAddress]}
+            />
 
-                  <Button type="submit">
-                    {submitting ? "Submitting..." : `Claim Your ${STRINGS.tokenName}`}
-                  </Button>
-                </SignupForm>
-              }
-            </div>
-          </div>
-        </div>
+            <Button type="submit">
+              {submitting ? "Submitting..." : `Claim Your ${STRINGS.tokenName}`}
+            </Button>
+          </SignupForm>
+        }
       </Wrapper>
     </DocumentTitle>
   );
