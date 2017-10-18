@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
 export const COLORS = {
-    error: "pink",
-    text: "white",
+  error: "pink",
+  text: "white",
 };
+
+export const Wrapper = styled.div`
+  padding: 150px 0;
+`;
 
 export const FormError = styled.div`
   color: ${COLORS.error};
@@ -19,7 +23,6 @@ export const FieldError = styled.div`
 export const Heading = styled.div`
   font-size: 100px;
   text-align: center;
-  margin-top: 300px;
 `;
 
 export const SubHeading = styled.div`
@@ -67,7 +70,8 @@ export const InputWrapper = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 500px;
+  min-width: 300px;
+  max-width: 500px;
   height: 30px;
   background: none;
   color: ${COLORS.text};
