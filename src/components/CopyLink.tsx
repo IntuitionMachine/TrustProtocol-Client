@@ -50,7 +50,7 @@ const CopyLinkPresentational: React.StatelessComponent<PropsIn> = (props: PropsI
       <LinkWrapper>{props.link}</LinkWrapper>
       <CopyToClipboard text={props.link}>
         <CopyButton onClick={() => props.setHasCopiedLink(true)} hasCopiedLink={props.hasCopiedLink}>
-          {props.hasCopiedLink ? <span>&#x2713; Copied</span> : "Copy"}
+          Copy
         </CopyButton>
       </CopyToClipboard>
 

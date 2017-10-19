@@ -91,6 +91,10 @@ export const Input = styled.input`
     font-size: 18px;
     font-weight: lighter;
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const CenteredImg = styled.img`
@@ -106,11 +110,4 @@ export const SignupForm = styled.form`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-`;
-
-export const SuccessWrapper = styled.div`
-  margin-top: 150px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
 `;

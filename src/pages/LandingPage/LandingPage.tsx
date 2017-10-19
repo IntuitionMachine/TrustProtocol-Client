@@ -14,7 +14,7 @@ import { CountDown } from "../../components/CountDown";
 import DocumentTitle = require("react-document-title");
 import { CopyLink } from "../../components/CopyLink";
 import {
-  SuccessWrapper, InputWrapper, InputLabel,
+  InputWrapper, InputLabel,
   FieldError, Input, Heading, CountDownWrapper,
   SubHeading, DeliveryText, SignupForm, FormError,
   Button,
@@ -22,7 +22,7 @@ import {
 } from "./LandingPageStyles";
 
 const STRINGS = {
-  tokenName: "SpecialCoin",
+  tokenName: "Token",
 };
 
 const CREATE_USER_MUTATION = gql`
@@ -32,14 +32,6 @@ mutation createUser($email: String!, $ethereumAddress: String!, $referrerId: ID)
   }
 }
 `;
-
-const SuccessMessage = (props) => (
-  <SuccessWrapper>
-    <p>Confirm your email address to recieve your tokens when delievery happens.</p>
-    <p>Share the link below with your friends to earn extra tokens.</p>
-    <CopyLink link={`${window.location.host}/referrer/${props.newUser.id}`} />
-  </SuccessWrapper>
-);
 
 interface PropsType {
   formProps: any;
@@ -82,7 +74,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
           <CountDown deadline={deadline} />
         </CountDownWrapper>
         {props.hasSucceeded &&
-          <SuccessMessage newUser={props.newUser} />
+          <div>Confirm your email, son!!</div>
         }
         {!props.hasSucceeded &&
           <SignupForm onSubmit={handleSubmit}>
@@ -102,7 +94,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             />
 
             <Button type="submit">
-              {submitting ? "Submitting..." : `Claim Your ${STRINGS.tokenName}`}
+              {submitting ? "Submitting..." : `Get Your Free ${STRINGS.tokenName}`}
             </Button>
           </SignupForm>
         }
