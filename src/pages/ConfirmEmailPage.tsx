@@ -30,19 +30,25 @@ class ConfirmEmailPage extends React.Component<any, any> {
       isLoading: true,
       hasError: false,
       hasConfirmed: false,
-      userId: null,
+      user: {},
     };
   }
 
   public componentWillMount() {
     this.props.confirmEmail({ variables: { confirmationToken: this.props.match.params.confirmationToken } })
       .then((result) => {
-        console.log("result", result);
         if (result.data.confirmEmail && result.data.confirmEmail.id) {
           const { id, email, ethereumAddress } = result.data.confirmEmail;
-          this.setState({ isLoading: false, hasConfirmed: true });
+          this.setState({
+            isLoading: false,
+            hasConfirmed: true,
+            user: { id, email, ethereumAddress },
+          });
         } else {
-          this.setState({ isLoading: false, hasError: true });
+          this.setState({
+            isLoading: false,
+            hasError: true,
+          });
         }
       });
   }
@@ -51,13 +57,13 @@ class ConfirmEmailPage extends React.Component<any, any> {
     return (
       <div className="container">
         {this.state.hasError &&
-          "Your email confirmation code is invalid."
+          "Your email confirmation code is invalid. Back to sign up page."
         }
         {this.state.isLoading && !this.state.hasError &&
           "Confirming your email..."
         }
         {this.state.hasConfirmed &&
-          "Success! Your email has been confirmed."
+          <SuccessMessage user={this.state.user} />
         }
       </div>
     );

@@ -6,7 +6,7 @@ export const COLORS = {
 };
 
 export const Wrapper = styled.div`
-  padding: 150px 0;
+  padding: 150px 20px;
 `;
 
 export const FormError = styled.div`

@@ -13,12 +13,12 @@ const Wrapper = styled.div`
   margin-left: 10px;
 `;
 
-const CounterPane = styled.div`
-	padding: 10px;
+const CounterPane: any = styled.div`
+  padding: ${(props: any) => props.large ? "10px" : "5px"};
 	border-radius: 3px;
 	background: rgba(0, 0, 0, 0.1);
   display: inline-block;
-  margin-left: 8px;
+  margin-left: ${(props: any) => props.large ? "8px" : "4px"};
 `;
 
 const Readout: any = styled.span`
@@ -73,19 +73,19 @@ class CountDown extends React.Component<any, any> {
   private renderCountDown(large: boolean) {
     return (
       <Wrapper>
-        <CounterPane>
+        <CounterPane large={large}>
           <Readout large={large}>{this.state.days}</Readout>
           <Label large={large}>Days</Label>
         </CounterPane>
-        <CounterPane>
+        <CounterPane large={large}>
           <Readout large={large}>{this.state.hours}</Readout>
           <Label large={large}>Hours</Label>
         </CounterPane>
-        <CounterPane>
+        <CounterPane large={large}>
           <Readout large={large}>{this.state.minutes}</Readout>
           <Label large={large}>Minutes</Label>
         </CounterPane>
-        <CounterPane>
+        <CounterPane large={large}>
           <Readout large={large}>{this.state.seconds}</Readout>
           <Label large={large}>Seconds</Label>
         </CounterPane>
