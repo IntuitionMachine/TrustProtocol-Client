@@ -19,6 +19,8 @@ import {
   SubHeading, DeliveryText, SignupForm, FormError,
   Button,
   Wrapper,
+  Explanation,
+  StyledLink,
 } from "./LandingPageStyles";
 
 const STRINGS = {
@@ -92,6 +94,9 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
               type="text"
               validate={[required, ethereumAddress]}
             />
+            <Explanation>
+              Don't have an Ethereum address yet? Set one up <StyledLink target="_blank" href="https://www.myetherwallet.com/">here</StyledLink>.
+            </Explanation>
 
             <Button type="submit">
               {submitting ? "Submitting..." : `Get Your Free ${STRINGS.tokenName}`}

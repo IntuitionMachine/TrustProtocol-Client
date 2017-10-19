@@ -25,6 +25,18 @@ export const Heading = styled.div`
   text-align: center;
 `;
 
+export const Explanation = styled.div`
+  margin-top: 10px;
+  font-size: 14px;
+`;
+
+export const StyledLink = styled.a`
+  font-size: 14px;
+  color: ${COLORS.text};
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
 export const SubHeading = styled.div`
   font-size: 40px;
   text-align: center;
