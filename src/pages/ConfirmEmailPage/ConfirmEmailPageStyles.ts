@@ -18,7 +18,6 @@ export const Wrapper = styled.div`
 
 export const SuccessWrapper = styled.div`
   font-size: 20px;
-  font-weight: bold;
 `;
 
 export const Heading = styled.div`

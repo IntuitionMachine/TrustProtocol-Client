@@ -8,7 +8,8 @@ export const COLORS = {
   text: "white",
 };
 
-export const Wrapper = styled.div`
+// Landing
+export const LandingWrapper = styled.div`
   padding: 150px 20px;
   ${media.phone`padding: 50px 20px;`}
 `;
@@ -30,6 +31,12 @@ export const Heading = styled.div`
 
   ${media.phone`font-size:80px`}
 
+`;
+
+export const ConfirmEmail = styled.div`
+  text-align: center;
+  margin-top: 80px;
+  font-size: 20px;
 `;
 
 export const Explanation = styled.div`
@@ -132,4 +139,75 @@ export const SignupForm = styled.form`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+`;
+
+// Panel
+export const Panel = styled.div`
+  padding: 100px 40px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #D8D8D8;
+
+  ${media.desktop`
+    flex-direction: column;
+    text-align: center; 
+    padding: 40px 40px;
+  `}
+`;
+
+export const TintedPanel = Panel.extend`
+  background-image: linear-gradient(to bottom,rgba(108,206,236,0.15),rgba(255,255,255,0));
+  background-color: white !important;
+`;
+
+export const Column = styled.div`
+  padding: 50px 30px;
+  max-width: 500px;
+
+`;
+
+export const Header = styled.div`
+  font-size: 40px;
+  color: #28304f;
+  ${media.desktop`
+    font-size: 50px;
+  `}
+
+  ${media.phone`
+    font-size: 40px;
+  `}
+
+  ${media.desktop`color:lime`}
+  ${media.tablet`color:yellow`}
+  ${media.phone`color:magenta`}
+
+`;
+
+export const Copy = styled.div`
+  color: rgb(78, 78, 78);
+  font-size: 18px;
+  margin-top: 25px;
+  line-height: 24px;
+
+  ${media.desktop`
+    font-size: 20px;
+  `}
+`;
+
+export const PanelImage = styled.img`
+  width: 340px;
+  padding: 0 40px;
+`;
+
+export const CalendarImage = PanelImage.extend`
+  width: 310px;
+`;
+
+export const Footer = styled.div`
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
