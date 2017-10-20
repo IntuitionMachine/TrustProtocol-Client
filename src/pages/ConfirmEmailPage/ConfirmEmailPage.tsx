@@ -9,14 +9,18 @@ import { MediaTemplate, MediaTemplateType } from "../../utils/MediaTemplate";
 import {
   ReferralWrapper, SuccessWrapper, Heading,
   CoinWrapper, CoinImage, Copy, Address,
-  ShareIcon, Wrapper
+  Wrapper, ShareIcon, Referral
 } from "./ConfirmEmailPageStyles";
+
+const truncate = (address: string) => address.substr(0, 8) + "...";
 
 const ReferralBox = (props) => (
   <ReferralWrapper>
-    <p>Share the link below with your friends to earn extra tokens.</p>
-    <p>For each friend who signs through your link, you will be awarded 1 additional token!</p>
-    <CopyLink link={`${window.location.host}/referrer/${props.userId}`} />
+    <Referral>
+      <p>Share the link below with your friends to earn extra tokens.</p>
+      <p>For each friend who signs up through your link, you will be awarded 1 additional token!</p>
+      <CopyLink link={`${window.location.host}/referrer/${props.userId}`} />
+    </Referral>
   </ReferralWrapper>
 );
 
@@ -27,8 +31,8 @@ const SuccessMessage = (props) => (
       <CoinImage src="/images/coin.png" />
     </CoinWrapper>
     <p>You've received 1 token!</p>
-    <Copy>A transfer has been initiated with Ethereum address</Copy>
-    <Address>{props.user.ethereumAddress}.</Address>
+    <Copy>A transfer has been initiated with Ethereum address <Address>{truncate(props.user.ethereumAddress)}</Address></Copy>
+
     <ReferralBox userId={props.user.id} />
     {/* <ShareIcon href="#" className="fa fa-facebook" />
     <ShareIcon href="#" className="fa fa-twitter" /> */}
@@ -76,8 +80,6 @@ class ConfirmEmailPage extends React.Component<any, any> {
               ethereumAddress: "0x2837423749328423874324234324233333434343",
             }}
           />
-
-          // "Error, invalid code!"
         }
         {this.state.isLoading && !this.state.hasError &&
           "Confirming your email..."

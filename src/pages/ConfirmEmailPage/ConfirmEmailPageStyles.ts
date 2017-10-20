@@ -11,6 +11,9 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-flow: row wrap;
+  
+  ${media.tablet`padding-top:70px; padding-bottom: 70px;`}
+  ${media.phone`padding-top:70px; padding-bottom: 70px;`}
 `;
 
 export const SuccessWrapper = styled.div`
@@ -21,58 +24,58 @@ export const SuccessWrapper = styled.div`
 export const Heading = styled.div`
   font-size: 80px;
   text-align: center;
-  ${media.desktop`
-    color: lime;
-  `}
-  ${media.tablet`
-    color: yellow;
-  `}
-  ${media.phone`
-    color: pink;
-    font-size: 45px;
-  `}
+
+  ${media.tablet`font-size:50px`}
+  ${media.phone`font-size:40px`}
 `;
 
 export const CoinWrapper = styled.div`
   padding-top: 100px;
-  ${media.phone`
-    padding-top: 50px;
-  `}
-`;
-
-export const Address = styled.div`
-  font-family: Inconsolata;
-  font-size: 20px;
-  margin-top: 4px;
-`;
-
-export const Copy = styled.div`
-  margin-top: 100px;
+  ${media.tablet`padding-top:80px`}
 `;
 
 export const CoinImage = styled.img`
   width: 150px;
   height: 150px;
   animation-name: hvr-bob-float, hvr-bob;
-  imation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
   animation-delay: 0s, .3s;
   animation-timing-function: ease-out, ease-in-out;
   animation-iteration-count: 1, infinite;
   animation-fill-mode: forwards;
   animation-direction: normal, alternate;
 
-  ${media.phone`
-    width: 80px;
-    height: 80px;
-  `}
+  ${media.tablet`width:120px; height: 120px;`}
+  ${media.phone`width:80px; height: 80px;`}
+`;
+
+export const Address = styled.span`
+  font-family: Inconsolata;
+  font-size: 20px;
+  margin-top: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0 auto;
+`;
+
+export const Copy = styled.div`
+  margin-top: 100px;
+  padding: 0 20px;
 `;
 
 export const ReferralWrapper = styled.div`
+  padding: 20px;
   margin-top: 100px;
-  padding: 50px;
-  max-width: 800px;
+
+  ${media.phone`margin-top:60px;`}
+`;
+
+export const Referral = styled.div`
   border: 2px dashed #fff;
   border-radius: 10px;
+  padding: 20px;
+  ${media.tablet`font-size:18px`}
+  ${media.phone`font-size:14px;`}
 `;
 
 export const ShareIcon = styled.a`
