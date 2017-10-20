@@ -189,7 +189,6 @@ export const Copy = styled.div`
   color: rgb(78, 78, 78);
   font-size: 18px;
   margin-top: 25px;
-  line-height: 24px;
 
   ${media.desktop`
     font-size: 20px;

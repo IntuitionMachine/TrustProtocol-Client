@@ -9,7 +9,7 @@ import { MediaTemplate, MediaTemplateType } from "../../utils/MediaTemplate";
 import {
   ReferralWrapper, SuccessWrapper, Heading,
   CoinWrapper, CoinImage, Copy, Address,
-  Wrapper, ShareIcon, Referral
+  Wrapper, ShareIcon, Referral, Message
 } from "./ConfirmEmailPageStyles";
 
 const truncate = (address: string) => address.substr(0, 8) + "...";
@@ -73,16 +73,17 @@ class ConfirmEmailPage extends React.Component<any, any> {
     return (
       <Wrapper>
         {this.state.hasError &&
-          <SuccessMessage
-            user={{
-              id: "cj8yzvd1j8nt80126ic7ersqa",
-              email: "shadi@gmail.com",
-              ethereumAddress: "0x2837423749328423874324234324233333434343",
-            }}
-          />
+          <Message>Error! Invalid Code</Message>
+          // <SuccessMessage
+          //   user={{
+          //     id: "cj8yzvd1j8nt80126ic7ersqa",
+          //     email: "shadi@gmail.com",
+          //     ethereumAddress: "0x2837423749328423874324234324233333434343",
+          //   }}
+          // />
         }
         {this.state.isLoading && !this.state.hasError &&
-          "Confirming your email..."
+          <Message>Confirming your email...</Message>
         }
         {this.state.hasConfirmed &&
           <SuccessMessage user={this.state.user} />

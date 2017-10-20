@@ -4,6 +4,12 @@ import "./bob.css";
 
 const media = MediaTemplate as MediaTemplateType;
 
+export const Message = styled.div`
+  text-align: center;
+  font-size: 30px;
+  color: white;
+`;
+
 export const Wrapper = styled.div`
   padding: 100px 20px;
   display: flex;
