@@ -4,7 +4,7 @@ import ApolloClient, { createNetworkInterface } from "apollo-client";
 import { IndexPage } from "./components/IndexPage";
 import { ApolloProvider } from "react-apollo";
 import { Layout } from "./components/Layout";
-import { ConfirmEmailPageWithMutations } from "./pages/ConfirmEmailPage";
+import { ConfirmEmailPageWithMutations } from "./pages/ConfirmEmailPage/ConfirmEmailPage";
 import { createStore, combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
