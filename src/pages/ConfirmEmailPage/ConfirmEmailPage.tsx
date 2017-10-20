@@ -5,60 +5,12 @@ import gql from "graphql-tag";
 import { withRouter } from "react-router";
 import { compose } from "recompose";
 import { CopyLink } from "../../components/CopyLink";
-import "./bob.css";
-
-export const Wrapper = styled.div`
-  padding: 100px 20px;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  flex-flow: row wrap;
-`;
-
-export const SuccessWrapper = styled.div`
-  font-size: 20px;
-  font-weight: bold;
-`;
-
-export const Heading = styled.div`
-  font-size: 80px;
-  text-align: center;
-`;
-
-export const CoinWrapper = styled.div`
-  padding-top: 100px;
-`;
-
-export const Address = styled.div`
-  font-family: Inconsolata;
-  font-size: 20px;
-  margin-top: 4px;
-`;
-
-export const Copy = styled.div`
-  margin-top: 100px;
-`;
-
-export const CoinImage = styled.img`
-  width: 150px;
-  height: 150px;
-  animation-name: hvr-bob-float, hvr-bob;
-  animation-duration: .3s, 1.5s;
-  animation-delay: 0s, .3s;
-  animation-timing-function: ease-out, ease-in-out;
-  animation-iteration-count: 1, infinite;
-  animation-fill-mode: forwards;
-  animation-direction: normal, alternate;
-`;
-
-const ReferralWrapper = styled.div`
-  margin-top: 100px;
-  padding: 50px;
-  max-width: 800px;
-  border: 2px dashed #fff;
-  border-radius: 10px;
-`;
+import { MediaTemplate, MediaTemplateType } from "../../utils/MediaTemplate";
+import {
+  ReferralWrapper, SuccessWrapper, Heading,
+  CoinWrapper, CoinImage, Copy, Address,
+  ShareIcon, Wrapper
+} from "./ConfirmEmailPageStyles";
 
 const ReferralBox = (props) => (
   <ReferralWrapper>
@@ -78,8 +30,8 @@ const SuccessMessage = (props) => (
     <Copy>A transfer has been initiated with Ethereum address</Copy>
     <Address>{props.user.ethereumAddress}.</Address>
     <ReferralBox userId={props.user.id} />
-    {/* <FacebookIcon href="#" className="fa fa-facebook" />
-    <a href="#" className="fa fa-twitter" /> */}
+    {/* <ShareIcon href="#" className="fa fa-facebook" />
+    <ShareIcon href="#" className="fa fa-twitter" /> */}
   </SuccessWrapper>
 );
 
@@ -117,15 +69,15 @@ class ConfirmEmailPage extends React.Component<any, any> {
     return (
       <Wrapper>
         {this.state.hasError &&
-          // <SuccessMessage
-          //   user={{
-          //     id: "cj8yzvd1j8nt80126ic7ersqa",
-          //     email: "shadi@gmail.com",
-          //     ethereumAddress: "0x2837423749328423874324234324233333434343",
-          //   }}
-          // />
+          <SuccessMessage
+            user={{
+              id: "cj8yzvd1j8nt80126ic7ersqa",
+              email: "shadi@gmail.com",
+              ethereumAddress: "0x2837423749328423874324234324233333434343",
+            }}
+          />
 
-          "Error, invalid code!"
+          // "Error, invalid code!"
         }
         {this.state.isLoading && !this.state.hasError &&
           "Confirming your email..."
