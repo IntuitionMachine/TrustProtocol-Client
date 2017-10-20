@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { MediaTemplate, MediaTemplateType } from "../../utils/MediaTemplate";
+
+const media = MediaTemplate as MediaTemplateType;
 
 export const COLORS = {
   error: "pink",
@@ -7,6 +10,7 @@ export const COLORS = {
 
 export const Wrapper = styled.div`
   padding: 150px 20px;
+  ${media.phone`padding: 50px 20px;`}
 `;
 
 export const FormError = styled.div`
@@ -23,6 +27,9 @@ export const FieldError = styled.div`
 export const Heading = styled.div`
   font-size: 100px;
   text-align: center;
+
+  ${media.phone`font-size:80px`}
+
 `;
 
 export const Explanation = styled.div`
@@ -41,12 +48,15 @@ export const SubHeading = styled.div`
   font-size: 40px;
   text-align: center;
   margin-top: 100px;
+
+  ${media.phone`font-size:30px; margin-top: 70px;`}
 `;
 
 export const DeliveryText = styled.div`
   display: inline-block;
   font-size: 40px;
   margin-bottom: 20px;
+  ${media.phone`font-size:30px;`}
 `;
 
 export const CountDownWrapper = styled.div`
