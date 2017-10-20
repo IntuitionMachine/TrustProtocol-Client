@@ -178,11 +178,6 @@ export const Header = styled.div`
   ${media.phone`
     font-size: 40px;
   `}
-
-  ${media.desktop`color:lime`}
-  ${media.tablet`color:yellow`}
-  ${media.phone`color:magenta`}
-
 `;
 
 export const Copy = styled.div`
