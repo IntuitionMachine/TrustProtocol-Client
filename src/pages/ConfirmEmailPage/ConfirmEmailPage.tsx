@@ -19,7 +19,7 @@ const ReferralBox = (props) => (
     <Referral>
       <p>Share the link below with your friends to earn extra tokens.</p>
       <p>For each friend who signs up through your link, you will be awarded 1 additional token!</p>
-      <CopyLink link={`${window.location.host}/referrer/${props.userId}`} />
+      <CopyLink link={`${window.location.protocol}//${window.location.host}/referrer/${props.userId}`} />
     </Referral>
   </ReferralWrapper>
 );
