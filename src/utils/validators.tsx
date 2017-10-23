@@ -38,6 +38,10 @@ const email = (value: string) =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
     "Invalid email address" : undefined;
 
+const emailWithoutPlus = (value: string) =>
+  value && !/^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
+    "Invalid email address" : undefined;
+
 const ethereumAddress = (value: string) =>
   value && !isEthereumAddress(value) ? "Invalid ethereum address" : undefined;
 
@@ -47,6 +51,7 @@ const required = (value: string) => (
 
 export {
   email,
+  emailWithoutPlus,
   required,
   ethereumAddress
 };
