@@ -58,9 +58,6 @@ const SuccessMessage = (props) => (
     <Copy>A transfer has been initiated with Ethereum address <Address>{truncate(props.user.ethereumAddress)}</Address></Copy>
 
     <ReferralBox userId={props.user.id} />
-
-    {/* <ShareIcon href="#" className="fa fa-facebook" />
-    <ShareIcon href="#" className="fa fa-twitter" /> */}
   </SuccessWrapper>
 );
 
