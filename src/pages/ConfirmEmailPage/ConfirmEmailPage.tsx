@@ -11,18 +11,42 @@ import {
   CoinWrapper, CoinImage, Copy, Address,
   Wrapper, ShareIcon, Referral, Message
 } from "./ConfirmEmailPageStyles";
+import { generateShareIcon } from "react-share";
+import { StyledFacebookButton, StyledTwitterButton, SocialMediaButtons } from "../../components/SocialMediaButtons";
 
 const truncate = (address: string) => address.substr(0, 8) + "...";
 
-const ReferralBox = (props) => (
-  <ReferralWrapper>
-    <Referral>
-      <p>Share the link below with your friends to earn extra tokens.</p>
-      <p>For each friend who signs up through your link, you will be awarded 1 additional token!</p>
-      <CopyLink link={`${window.location.protocol}//${window.location.host}/referrer/${props.userId}`} />
-    </Referral>
-  </ReferralWrapper>
-);
+const ReferralBox = (props) => {
+  const FacebookIcon = generateShareIcon("facebook");
+  const TwitterIcon = generateShareIcon("twitter");
+  const title = "Get free money with this new blockchain demo.";
+  const referralLink = `${window.location.protocol}//${window.location.host}/referrer/${props.userId}`;
+
+  return (
+    <ReferralWrapper>
+      <Referral>
+        <p>Share the link below with your friends to earn extra tokens.</p>
+        <p>For each friend who signs up through your link, you will be awarded 1 additional token!</p>
+        <CopyLink link={referralLink} />
+        <SocialMediaButtons>
+          <StyledFacebookButton
+            url={referralLink}
+            quote={title}
+          >
+            <FacebookIcon size={60} round={true} />
+          </StyledFacebookButton>
+
+          <StyledTwitterButton
+            url={referralLink}
+            title={title}
+          >
+            <TwitterIcon size={60} round={true} />
+          </StyledTwitterButton>
+        </SocialMediaButtons>
+      </Referral>
+    </ReferralWrapper >
+  );
+};
 
 const SuccessMessage = (props) => (
   <SuccessWrapper>
@@ -34,6 +58,7 @@ const SuccessMessage = (props) => (
     <Copy>A transfer has been initiated with Ethereum address <Address>{truncate(props.user.ethereumAddress)}</Address></Copy>
 
     <ReferralBox userId={props.user.id} />
+
     {/* <ShareIcon href="#" className="fa fa-facebook" />
     <ShareIcon href="#" className="fa fa-twitter" /> */}
   </SuccessWrapper>
@@ -73,14 +98,14 @@ class ConfirmEmailPage extends React.Component<any, any> {
     return (
       <Wrapper>
         {this.state.hasError &&
-          <Message>Error! Invalid Code</Message>
-          // <SuccessMessage
-          //   user={{
-          //     id: "cj8yzvd1j8nt80126ic7ersqa",
-          //     email: "shadi@gmail.com",
-          //     ethereumAddress: "0x2837423749328423874324234324233333434343",
-          //   }}
-          // />
+          // <Message>Error! Invalid Code</Message>
+          <SuccessMessage
+            user={{
+              id: "cj8yzvd1j8nt80126ic7ersqa",
+              email: "shadi@gmail.com",
+              ethereumAddress: "0x2837423749328423874324234324233333434343",
+            }}
+          />
         }
         {this.state.isLoading && !this.state.hasError &&
           <Message>Confirming your email...</Message>
@@ -95,10 +120,10 @@ class ConfirmEmailPage extends React.Component<any, any> {
 
 const confirmEmail = gql`
 mutation confirmEmail($confirmationToken: String!) {
-  confirmEmail(confirmationToken: $confirmationToken){
-    id
+        confirmEmail(confirmationToken: $confirmationToken){
+        id
     email
-    ethereumAddress
+      ethereumAddress
   }
 }
 `;

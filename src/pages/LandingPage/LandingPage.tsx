@@ -129,9 +129,9 @@ The SmartTrust is controlled and owned by an Ethereum smart contract which distr
 
         <Panel>
           <Column>
-            <Header>The Tokenized Economy</Header>
+            <Header>A Tokenized Economy</Header>
             <Copy>This is the world’s first demonstration of legally-enforceable asset tokenization via the blockchain.</Copy>
-            <Copy>It’s made possible by the TrustToken Protocol. You’ll be hearing more from us soon.</Copy>
+            <Copy>It’s made possible by the TrustToken Protocol. You’ll hear more from us soon.</Copy>
           </Column>
           <Column>
             <PanelImage src="/images/globe.png" />
