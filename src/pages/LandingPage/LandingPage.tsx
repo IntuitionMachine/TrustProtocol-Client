@@ -19,7 +19,7 @@ import {
   SubHeading, DeliveryText, SignupForm, FormError,
   Button, Explanation, StyledLink,
   Panel, Column, Header, Copy, PanelImage,
-  CalendarImage, TintedPanel, Footer, ConfirmEmail
+  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage
 } from "./LandingPageStyles";
 const STRINGS = {
   tokenName: "Token",
@@ -69,9 +69,9 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
       <div>
         <LandingWrapper>
           <Heading>Join the Frontier</Heading>
-          <SubHeading>Claim your piece of the world's first tokenized asset.</SubHeading>
+          <SubHeading>Help us test the world's first tokenized bank account.</SubHeading>
           <CountDownWrapper>
-            <DeliveryText>Money distributed in</DeliveryText>
+            <DeliveryText>Experiment ends in</DeliveryText>
             <CountDown deadline={deadline} />
           </CountDownWrapper>
           {props.hasSucceeded &&
@@ -88,7 +88,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
               />
               <Field
                 name="ethereumAddress"
-                label="Ethereum Address"
+                label="Public Ethereum Wallet Address"
                 component={renderField}
                 type="text"
                 validate={[required, ethereumAddress]}
@@ -106,35 +106,46 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
 
         <Panel>
           <Column>
-            <Header>How does this work?</Header>
+            <Header>What's this all about?</Header>
+            <Copy>We're TrustToken. We're building techology that allows distributed, legally-enforcible ownership of real-world assets via the blockchain.</Copy>
+            <Copy>We're distributing tokens for free in this demo to gather feedback from the community and test our tokenization protocol.</Copy>
+          </Column>
+          <Column>
+            <LogoImage src="/images/tt-logo.png" />
+          </Column>
+        </Panel>
+
+        <Panel>
+          <Column>
+            <PanelImage src="/images/redpiggy.png" />
+          </Column>
+          <Column>
+            <Header>How does it work?</Header>
             <Copy>Your tokens give you partial ownership over a bank account with a balance of $100.</Copy>
             <Copy>The bank account is held by a special legal entity we developed called a “SmartTrust.”
 The SmartTrust is controlled and owned by an Ethereum smart contract which distributes ownership over the trust assets by issuing tokens. </Copy>
-          </Column>
-          <Column>
-            <PanelImage src="/images/redpiggy.png" />
           </Column>
         </Panel>
 
         <TintedPanel>
           <Column>
-            <CalendarImage src="/images/calendar.png" />
+            <Header>Do I Get Real Money?</Header>
+            <Copy>Yes, but probably less than $1. 😅</Copy>
+            <Copy>At 12:00 PM PST on Friday, October 27, the smart contract will instruct its fiduciary to convert the $100 balance into ETH and send it to the smart contract. The smart contract will then distribute the funds proportionally to the token-holders.</Copy>
           </Column>
           <Column>
-            <Header>Do I Get Real Money?</Header>
-            <Copy>Yes!</Copy>
-            <Copy>At 12:00 PM PST on Friday, October 27, the smart contract will instruct its fiduciary to convert the $100 balance into ETH and send it to the smart contract. The smart contract will then automatically distribute the funds to the token-holders.</Copy>
+            <CalendarImage src="/images/calendar.png" />
           </Column>
         </TintedPanel>
 
         <Panel>
           <Column>
+            <PanelImage src="/images/globe.png" />
+          </Column>
+          <Column>
             <Header>A Tokenized Economy</Header>
             <Copy>This is the world’s first demonstration of legally-enforceable asset tokenization via the blockchain.</Copy>
             <Copy>It’s made possible by the TrustToken Protocol. You’ll hear more from us soon.</Copy>
-          </Column>
-          <Column>
-            <PanelImage src="/images/globe.png" />
           </Column>
         </Panel>
         <Footer>&copy; 2017 TrustToken Inc.</Footer>

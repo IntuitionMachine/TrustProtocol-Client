@@ -191,12 +191,16 @@ export const Copy = styled.div`
 `;
 
 export const PanelImage = styled.img`
-  width: 340px;
+  width: 310px;
   padding: 0 40px;
 `;
 
 export const CalendarImage = PanelImage.extend`
-  width: 310px;
+  width: 280px;
+`;
+
+export const LogoImage = PanelImage.extend`
+  width: 270px;
 `;
 
 export const Footer = styled.div`
