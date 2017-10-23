@@ -26,7 +26,7 @@ const ReferralBox = (props) => {
     <ReferralWrapper>
       <Referral>
         <p>Share the link below with your friends to earn extra tokens.</p>
-        <p>For each friend who signs up through your link, you will be awarded 1 additional token!</p>
+        <p>You will be awarded 1 additional token for each friend who signs up through your link!</p>
         <CopyLink link={referralLink} />
         <SocialMediaButtons>
           <StyledFacebookButton
