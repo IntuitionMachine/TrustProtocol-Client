@@ -1,4 +1,4 @@
-import SHA3 from "crypto-js/sha3";
+import * as SHA3 from "crypto-js/sha3";
 
 const sha3 = (value) => {
   return SHA3(value, {
