@@ -19,7 +19,7 @@ import {
   SubHeading, DeliveryText, SignupForm, FormError,
   Button, Explanation, StyledLink,
   Panel, Column, Header, Copy, PanelImage,
-  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage
+  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton
 } from "./LandingPageStyles";
 const STRINGS = {
   tokenName: "Token",
@@ -60,6 +60,15 @@ const renderField = ({
     </InputWrapper>
   );
 
+const RocketChatButton = (props) => {
+  const Button = props.component;
+  return (
+    <form method="get" action="https://google.com" target="_blank">
+      <Button type="submit">Talk to us on RocketChat</Button>
+    </form>
+  );
+};
+
 const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: PropsType) => {
   const { handleSubmit, pristine, reset, submitting } = props.formProps;
   const deadline = moment().add(7, "days");
@@ -68,6 +77,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
     <DocumentTitle title={STRINGS.tokenName}>
       <div>
         <LandingWrapper>
+          <RocketChatButton component={TopClearButton} />
           <Heading>Join the Frontier</Heading>
           <SubHeading>Help us test the world's first tokenized bank account.</SubHeading>
           <CountDownWrapper>
@@ -148,6 +158,10 @@ The SmartTrust is controlled and owned by an Ethereum smart contract which distr
             <Copy>It’s made possible by the TrustToken Protocol. You’ll hear more from us soon.</Copy>
           </Column>
         </TintedPanel>
+        <VerticalPanel>
+          <Copy>Still curious about TrustToken?</Copy>
+          <RocketChatButton component={YellowButton} />
+        </VerticalPanel>
         <Footer>&copy; 2017 TrustToken Inc.</Footer>
       </div>
     </DocumentTitle>

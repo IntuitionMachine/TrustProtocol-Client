@@ -11,7 +11,10 @@ export const COLORS = {
 // Landing
 export const LandingWrapper = styled.div`
   padding: 150px 20px;
-  ${media.phone`padding: 50px 20px;`}
+  ${media.phone`
+    padding: 50px 20px;
+    padding-top: 130px;
+  `}
 `;
 
 export const FormError = styled.div`
@@ -92,6 +95,34 @@ export const Button = styled.button`
   }
 `;
 
+export const YellowButton = Button.extend`
+  background-color: #f0ab39;
+  &:hover {
+    background-color: #f29803;
+  }
+`;
+
+export const TopClearButton = Button.extend`
+  float: right;
+  position: absolute;
+  top: 0px;
+  right: 40px;
+  width: 216px;
+  height: 50px;
+  color: white;
+  font-size: 12px;
+  background-color: transparent;
+  &:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
+
+  ${media.tablet`
+    left: 50%;
+    margin-left: -108px;
+  `}
+
+`;
+
 export const InputLabel: any = styled.label`
   color: ${(props: any) => props.invalid ? COLORS.error : COLORS.text};
 `;
@@ -157,6 +188,10 @@ export const Panel = styled.div`
   `}
 `;
 
+export const VerticalPanel = Panel.extend`
+  flex-direction: column;
+`;
+
 export const TintedPanel = Panel.extend`
   background-image: linear-gradient(to bottom,rgba(108,206,236,0.15),rgba(255,255,255,0));
   background-color: white !important;
@@ -188,6 +223,10 @@ export const Copy = styled.div`
   ${media.desktop`
     font-size: 20px;
   `}
+`;
+
+export const CenteredCopy = Copy.extend`
+  text-align: center;
 `;
 
 export const PanelImage = styled.img`
