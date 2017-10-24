@@ -32,7 +32,6 @@ mutation createUser($email: String!, $ethereumAddress: String!, $referrerId: ID)
   }
 }
 `;
-
 interface PropsType {
   formProps: any;
   newUser: any;
@@ -108,7 +107,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
           <Column>
             <Header>What's this all about?</Header>
             <Copy>We're TrustToken. We're building techology that allows distributed, legally-enforcible ownership of real-world assets via the blockchain.</Copy>
-            <Copy>We're distributing tokens for free in this demo to gather feedback from the community and test our tokenization protocol.</Copy>
+            <Copy>We're distributing tokens for free in this experiment to gather feedback from the community and test our tokenization protocol.</Copy>
           </Column>
           <Column>
             <LogoImage src="/images/tt-logo.png" />

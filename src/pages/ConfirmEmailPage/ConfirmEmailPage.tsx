@@ -9,10 +9,18 @@ import { MediaTemplate, MediaTemplateType } from "../../utils/MediaTemplate";
 import {
   ReferralWrapper, SuccessWrapper, Heading,
   CoinWrapper, CoinImage, Copy, Address,
-  Wrapper, ShareIcon, Referral, Message
+  Wrapper, ShareIcon, Referral, Message, StyledNumber
 } from "./ConfirmEmailPageStyles";
 import { generateShareIcon } from "react-share";
 import { StyledFacebookButton, StyledTwitterButton, SocialMediaButtons } from "../../components/SocialMediaButtons";
+
+const TOKEN_COUNT_QUERY = gql`
+query {
+  tokenCount {
+    count
+  }
+}
+`;
 
 const truncate = (address: string) => address.substr(0, 8) + "...";
 
@@ -54,8 +62,9 @@ const SuccessMessage = (props) => (
     <CoinWrapper>
       <CoinImage src="/images/coin.png" />
     </CoinWrapper>
-    <p>You've received 1 token!</p>
+    <p>You've received <StyledNumber>1</StyledNumber> token!</p>
     <Copy>A transfer has been initiated with Ethereum address <Address>{truncate(props.user.ethereumAddress)}</Address></Copy>
+    <Copy>Total tokens issued so far: <StyledNumber>{props.tokenCount}</StyledNumber></Copy>
 
     <ReferralBox userId={props.user.id} />
   </SuccessWrapper>
@@ -102,13 +111,14 @@ class ConfirmEmailPage extends React.Component<any, any> {
               email: "shadi@gmail.com",
               ethereumAddress: "0x2837423749328423874324234324233333434343",
             }}
+            tokenCount={99999}
           />
         }
         {this.state.isLoading && !this.state.hasError &&
           <Message>Confirming your email...</Message>
         }
         {this.state.hasConfirmed &&
-          <SuccessMessage user={this.state.user} />
+          <SuccessMessage user={this.state.user} tokenCount={this.props.data.tokenCount.count} />
         }
       </Wrapper>
     );
@@ -117,15 +127,16 @@ class ConfirmEmailPage extends React.Component<any, any> {
 
 const confirmEmail = gql`
 mutation confirmEmail($confirmationToken: String!) {
-        confirmEmail(confirmationToken: $confirmationToken){
-        id
+  confirmEmail(confirmationToken: $confirmationToken){
+    id
     email
-      ethereumAddress
+    ethereumAddress
   }
 }
 `;
 
 export const ConfirmEmailPageWithMutations = compose(
   graphql(confirmEmail, { name: "confirmEmail" }),
+  graphql(TOKEN_COUNT_QUERY),
   withRouter
 )(ConfirmEmailPage);
