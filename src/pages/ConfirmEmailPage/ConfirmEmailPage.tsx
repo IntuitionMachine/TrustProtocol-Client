@@ -27,7 +27,7 @@ const truncate = (address: string) => address.substr(0, 8) + "...";
 const ReferralBox = (props) => {
   const FacebookIcon = generateShareIcon("facebook");
   const TwitterIcon = generateShareIcon("twitter");
-  const title = "Get free money with this new blockchain demo.";
+  const title = "Get a piece of the world’s first tokenized bank account #blockchain";
   const referralLink = `${window.location.protocol}//${window.location.host}/referrer/${props.userId}`;
 
   return (
@@ -111,7 +111,7 @@ class ConfirmEmailPage extends React.Component<any, any> {
               email: "shadi@gmail.com",
               ethereumAddress: "0x2837423749328423874324234324233333434343",
             }}
-            tokenCount={99999}
+            tokenCount={340}
           />
         }
         {this.state.isLoading && !this.state.hasError &&

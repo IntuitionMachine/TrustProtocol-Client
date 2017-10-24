@@ -70,6 +70,7 @@ export const Copy = styled.div`
 
 export const StyledNumber = styled.span`
   font-size: 30px;
+  font-family: Inconsolata;
 `;
 
 export const ReferralWrapper = styled.div`
