@@ -66,7 +66,7 @@ const SuccessMessage = (props) => (
     <Copy>A transfer has been initiated with Ethereum address <Address>{truncate(props.user.ethereumAddress)}</Address></Copy>
     <Copy>Total tokens issued so far: <StyledNumber>{props.tokenCount}</StyledNumber></Copy>
 
-    <ReferralBox userId={props.user.id} />
+    {/* <ReferralBox userId={props.user.id} /> */}
   </SuccessWrapper>
 );
 
@@ -97,10 +97,14 @@ class ConfirmEmailPage extends React.Component<any, any> {
             hasError: true,
           });
         }
+      })
+      .catch((error) => {
+        this.setState({ hasError: true });
       });
   }
 
   public render() {
+    console.log("props", this.props);
     return (
       <Wrapper>
         {this.state.hasError &&
@@ -137,6 +141,6 @@ mutation confirmEmail($confirmationToken: String!) {
 
 export const ConfirmEmailPageWithMutations = compose(
   graphql(confirmEmail, { name: "confirmEmail" }),
-  graphql(TOKEN_COUNT_QUERY),
+  graphql(TOKEN_COUNT_QUERY, { name: "tokenCount" }),
   withRouter
 )(ConfirmEmailPage);
