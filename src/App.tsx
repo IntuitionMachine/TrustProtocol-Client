@@ -9,8 +9,8 @@ import { createStore, combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
 
-const networkInterface = createNetworkInterface({ uri: "https://api.graph.cool/simple/v1/cj8m6ujrq0evm0167mhdi4mta" });
-
+// const networkInterface = createNetworkInterface({ uri: "https://api.graph.cool/simple/v1/cj8m6ujrq0evm0167mhdi4mta" });
+const networkInterface = createNetworkInterface({ uri: "http://localhost:8080/graphql" });
 const reduxDevtoolsMiddleware =
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__();
 

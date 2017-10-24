@@ -8,10 +8,12 @@ const _Environments = {
     },
     dev:
     {
-        'GCOOL_ENDPOINT': 'https://api.graph.cool/simple/v1/cj8m6ujrq0evm0167mhdi4mta'
+         'GCOOL_ENDPOINT': 'http://localhost:8080'
     }
 
+
 }
+        // 'GCOOL_ENDPOINT': 'https://api.graph.cool/simple/v1/cj8m6ujrq0evm0167mhdi4mta'
 
 function getEnvironment() {
     // Insert logic here to get the current platform (e.g. staging, production, etc)
