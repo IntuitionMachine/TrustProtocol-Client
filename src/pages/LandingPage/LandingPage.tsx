@@ -32,6 +32,7 @@ mutation createUser($email: String!, $ethereumAddress: String!, $referrerId: ID)
   }
 }
 `;
+
 interface PropsType {
   formProps: any;
   newUser: any;
@@ -114,7 +115,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
           </Column>
         </Panel>
 
-        <Panel>
+        <TintedPanel>
           <Column>
             <PanelImage src="/images/redpiggy.png" />
           </Column>
@@ -124,9 +125,9 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <Copy>The bank account is held by a special legal entity we developed called a “SmartTrust.”
 The SmartTrust is controlled and owned by an Ethereum smart contract which distributes ownership over the trust assets by issuing tokens. </Copy>
           </Column>
-        </Panel>
+        </TintedPanel>
 
-        <TintedPanel>
+        <Panel>
           <Column>
             <Header>Do I Get Real Money?</Header>
             <Copy>Yes, but probably less than $1. 😅</Copy>
@@ -135,9 +136,9 @@ The SmartTrust is controlled and owned by an Ethereum smart contract which distr
           <Column>
             <CalendarImage src="/images/calendar.png" />
           </Column>
-        </TintedPanel>
+        </Panel>
 
-        <Panel>
+        <TintedPanel>
           <Column>
             <PanelImage src="/images/globe.png" />
           </Column>
@@ -146,7 +147,7 @@ The SmartTrust is controlled and owned by an Ethereum smart contract which distr
             <Copy>This is the world’s first demonstration of legally-enforceable asset tokenization via the blockchain.</Copy>
             <Copy>It’s made possible by the TrustToken Protocol. You’ll hear more from us soon.</Copy>
           </Column>
-        </Panel>
+        </TintedPanel>
         <Footer>&copy; 2017 TrustToken Inc.</Footer>
       </div>
     </DocumentTitle>
