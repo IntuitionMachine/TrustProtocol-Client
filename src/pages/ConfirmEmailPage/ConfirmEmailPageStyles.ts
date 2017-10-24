@@ -64,8 +64,13 @@ export const Address = styled.span`
 `;
 
 export const Copy = styled.div`
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 0 20px;
+`;
+
+export const StyledNumber = styled.span`
+  font-size: 30px;
+  font-family: Inconsolata;
 `;
 
 export const ReferralWrapper = styled.div`

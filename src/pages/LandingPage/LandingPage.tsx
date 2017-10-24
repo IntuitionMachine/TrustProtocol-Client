@@ -19,7 +19,7 @@ import {
   SubHeading, DeliveryText, SignupForm, FormError,
   Button, Explanation, StyledLink,
   Panel, Column, Header, Copy, PanelImage,
-  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage
+  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton
 } from "./LandingPageStyles";
 const STRINGS = {
   tokenName: "Token",
@@ -60,6 +60,15 @@ const renderField = ({
     </InputWrapper>
   );
 
+const RocketChatButton = (props) => {
+  const Button = props.component;
+  return (
+    <form method="get" action="https://google.com" target="_blank">
+      <Button type="submit">Talk to us on RocketChat</Button>
+    </form>
+  );
+};
+
 const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: PropsType) => {
   const { handleSubmit, pristine, reset, submitting } = props.formProps;
   const deadline = moment().add(7, "days");
@@ -68,6 +77,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
     <DocumentTitle title={STRINGS.tokenName}>
       <div>
         <LandingWrapper>
+          <RocketChatButton component={TopClearButton} />
           <Heading>Join the Frontier</Heading>
           <SubHeading>Help us test the world's first tokenized bank account.</SubHeading>
           <CountDownWrapper>
@@ -108,14 +118,14 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
           <Column>
             <Header>What's this all about?</Header>
             <Copy>We're TrustToken. We're building techology that allows distributed, legally-enforcible ownership of real-world assets via the blockchain.</Copy>
-            <Copy>We're distributing tokens for free in this demo to gather feedback from the community and test our tokenization protocol.</Copy>
+            <Copy>We're distributing tokens for free in this experiment to gather feedback from the community and test our tokenization protocol.</Copy>
           </Column>
           <Column>
             <LogoImage src="/images/tt-logo.png" />
           </Column>
         </Panel>
 
-        <Panel>
+        <TintedPanel>
           <Column>
             <PanelImage src="/images/redpiggy.png" />
           </Column>
@@ -125,9 +135,9 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <Copy>The bank account is held by a special legal entity we developed called a “SmartTrust.”
 The SmartTrust is controlled and owned by an Ethereum smart contract which distributes ownership over the trust assets by issuing tokens. </Copy>
           </Column>
-        </Panel>
+        </TintedPanel>
 
-        <TintedPanel>
+        <Panel>
           <Column>
             <Header>Do I Get Real Money?</Header>
             <Copy>Yes, but probably less than $1. 😅</Copy>
@@ -136,9 +146,9 @@ The SmartTrust is controlled and owned by an Ethereum smart contract which distr
           <Column>
             <CalendarImage src="/images/calendar.png" />
           </Column>
-        </TintedPanel>
+        </Panel>
 
-        <Panel>
+        <TintedPanel>
           <Column>
             <PanelImage src="/images/globe.png" />
           </Column>
@@ -147,7 +157,11 @@ The SmartTrust is controlled and owned by an Ethereum smart contract which distr
             <Copy>This is the world’s first demonstration of legally-enforceable asset tokenization via the blockchain.</Copy>
             <Copy>It’s made possible by the TrustToken Protocol. You’ll hear more from us soon.</Copy>
           </Column>
-        </Panel>
+        </TintedPanel>
+        <VerticalPanel>
+          <Copy>Still curious about TrustToken?</Copy>
+          <RocketChatButton component={YellowButton} />
+        </VerticalPanel>
         <Footer>&copy; 2017 TrustToken Inc.</Footer>
       </div>
     </DocumentTitle>
