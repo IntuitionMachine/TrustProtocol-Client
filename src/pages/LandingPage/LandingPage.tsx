@@ -183,9 +183,7 @@ const LandingPage = compose(
         props.setNewUser(result.data.createUser);
         props.setHasSucceeded(true);
       } catch (error) {
-        if (error.message.includes("GraphQL error: A unique constraint would be violated on User.")) {
-          props.setSubmissionError("Email or ethereum address already submitted.");
-        }
+        props.setSubmissionError("Email or ethereum address already submitted.");
       }
     },
   }),

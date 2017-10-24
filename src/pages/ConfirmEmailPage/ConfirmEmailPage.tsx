@@ -108,15 +108,15 @@ class ConfirmEmailPage extends React.Component<any, any> {
     return (
       <Wrapper>
         {this.state.hasError &&
-          // <Message>Error! Invalid Code</Message>
-          <SuccessMessage
-            user={{
-              id: "cj8yzvd1j8nt80126ic7ersqa",
-              email: "shadi@gmail.com",
-              ethereumAddress: "0x2837423749328423874324234324233333434343",
-            }}
-            tokenCount={340}
-          />
+          <Message>Error! Invalid Code</Message>
+          // <SuccessMessage
+          //   user={{
+          //     id: "cj8yzvd1j8nt80126ic7ersqa",
+          //     email: "shadi@gmail.com",
+          //     ethereumAddress: "0x2837423749328423874324234324233333434343",
+          //   }}
+          //   tokenCount={340}
+          // />
         }
         {this.state.isLoading && !this.state.hasError &&
           <Message>Confirming your email...</Message>
@@ -141,6 +141,6 @@ mutation confirmEmail($confirmationToken: String!) {
 
 export const ConfirmEmailPageWithMutations = compose(
   graphql(confirmEmail, { name: "confirmEmail" }),
-  graphql(TOKEN_COUNT_QUERY, { name: "tokenCount" }),
+  graphql(TOKEN_COUNT_QUERY),
   withRouter
 )(ConfirmEmailPage);
