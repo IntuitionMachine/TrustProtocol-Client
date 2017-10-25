@@ -72,7 +72,7 @@ const RocketChatButton = (props) => {
 const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: PropsType) => {
   const { handleSubmit, pristine, reset, submitting } = props.formProps;
   const deadline = moment().add(7, "days");
-
+  
   return (
     <DocumentTitle title={STRINGS.tokenName}>
       <div>
