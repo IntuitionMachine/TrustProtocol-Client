@@ -79,7 +79,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
         <LandingWrapper>
           {/* <RocketChatButton component={TopClearButton} /> */}
           <Heading>Join the Frontier</Heading>
-          <SubHeading>Help us test the world's first tokenized, collaborative creation of a song.</SubHeading>
+          <SubHeading>Help us create the world's first tokenized, collaborative song.</SubHeading>
           <CountDownWrapper>
             <DeliveryText>Experiment ends in</DeliveryText>
             <CountDown deadline={deadline} />
@@ -121,7 +121,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <Copy>If you hold a token, you get access to a private collaboration network where you’ll contribute to writing the lyrics of a song, and in exchange, you’ll receive of royalties from revenue streams of the song, such as sales on iTunes, streams on Spotify, and more.</Copy>
           </Column>
           <Column>
-            <LogoImage src="/images/tt-logo.png" />
+            <PanelImage src="/images/music.png" />
           </Column>
         </Panel>
 
@@ -150,7 +150,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
 
         <TintedPanel>
           <Column>
-            <PanelImage src="/images/globe.png" />
+            <CalendarImage src="/images/calendar.png" />
           </Column>
           <Column>
             <Header>When can I expect to see royalties?</Header>
