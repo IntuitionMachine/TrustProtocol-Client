@@ -63,7 +63,7 @@ const renderField = ({
 const RocketChatButton = (props) => {
   const Button = props.component;
   return (
-    <form method="get" action="https://google.com" target="_blank">
+    <form method="get" action="https://trusttoken.rocket.chat" target="_blank">
       <Button type="submit">Talk to us on RocketChat</Button>
     </form>
   );
