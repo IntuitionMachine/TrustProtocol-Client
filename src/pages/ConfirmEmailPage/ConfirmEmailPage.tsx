@@ -121,7 +121,7 @@ class ConfirmEmailPage extends React.Component<any, any> {
         {this.state.isLoading && !this.state.hasError &&
           <Message>Confirming your email...</Message>
         }
-        {this.state.hasConfirmed &&
+        {this.state.hasConfirmed && this.props.data.tokenCount &&
           <SuccessMessage user={this.state.user} tokenCount={this.props.data.tokenCount.count} />
         }
       </Wrapper>
