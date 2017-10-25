@@ -77,9 +77,9 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
     <DocumentTitle title={STRINGS.tokenName}>
       <div>
         <LandingWrapper>
-          <RocketChatButton component={TopClearButton} />
+          {/* <RocketChatButton component={TopClearButton} /> */}
           <Heading>Join the Frontier</Heading>
-          <SubHeading>Help us test the world's first tokenized bank account.</SubHeading>
+          <SubHeading>Help us test the world's first tokenized, collaborative creation of a song.</SubHeading>
           <CountDownWrapper>
             <DeliveryText>Experiment ends in</DeliveryText>
             <CountDown deadline={deadline} />
@@ -117,8 +117,8 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
         <Panel>
           <Column>
             <Header>What's this all about?</Header>
-            <Copy>We're TrustToken. We're building techology that allows distributed, legally-enforcible ownership of real-world assets via the blockchain.</Copy>
-            <Copy>We're distributing tokens for free in this experiment to gather feedback from the community and test our tokenization protocol.</Copy>
+            <Copy>Your tokens give you a percentage of ownership of a song created by you, the community, and Taryn.</Copy>
+            <Copy>If you hold a token, you get access to a private collaboration network where you’ll contribute to writing the lyrics of a song, and in exchange, you’ll receive of royalties from revenue streams of the song, such as sales on iTunes, streams on Spotify, and more.</Copy>
           </Column>
           <Column>
             <LogoImage src="/images/tt-logo.png" />
@@ -130,21 +130,21 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <PanelImage src="/images/redpiggy.png" />
           </Column>
           <Column>
-            <Header>How does it work?</Header>
-            <Copy>Your tokens give you partial ownership over a bank account with a balance of $100.</Copy>
-            <Copy>The bank account is held by a special legal entity we developed called a “SmartTrust.”
-The SmartTrust is controlled and owned by an Ethereum smart contract which distributes ownership over the trust assets by issuing tokens. </Copy>
+            <Header>How much are the song royalties worth?</Header>
+            <Copy>The pool of token holders will receive 50% of the songwriting royalties, while Taryn will receive the other 50%.</Copy>
+            <Copy>Unless the song is a huge hit, royalties are likely to be small.🙂</Copy>
+            <Copy>This purpose of this experiment is to highlight how crypto currency can help solve issues of accounting and transparency for the artist community, as well as give people a first-hand look at how creative assets like music are produced, distributed, and ultimately, paid out to collaborators.</Copy>
           </Column>
         </TintedPanel>
 
         <Panel>
           <Column>
-            <Header>Do I Get Real Money?</Header>
-            <Copy>Yes, but probably less than $1. 😅</Copy>
-            <Copy>At 12:00 PM PST on Friday, October 27, the smart contract will instruct its fiduciary to convert the $100 balance into ETH and send it to the smart contract. The smart contract will then distribute the funds proportionally to the token-holders.</Copy>
+            <Header>So how does this all work?</Header>
+            <Copy>The song is held by a special legal entity called a “SmartTrust.” The SmartTrust is controlled and owned by an Ethereum smart contract which distributes ownership over the trust assets by issuing tokens. The trust, representing the ownership of the song, will distribute its share of song royalties to Ether and distribute it to the token-holder collaborators.</Copy>
+            <Copy>This experiment is done in collaboration with TrustToken, which builds technology that allows distributed, legally-enforceable ownership of real-world assets via the blockchain. We're distributing tokens for free in this experiment to gather feedback from the community and test the tokenization protocol.</Copy>
           </Column>
           <Column>
-            <CalendarImage src="/images/calendar.png" />
+            <LogoImage src="/images/tt-logo.png" />
           </Column>
         </Panel>
 
@@ -153,14 +153,13 @@ The SmartTrust is controlled and owned by an Ethereum smart contract which distr
             <PanelImage src="/images/globe.png" />
           </Column>
           <Column>
-            <Header>A Tokenized Economy</Header>
-            <Copy>This is the world’s first demonstration of legally-enforceable asset tokenization via the blockchain.</Copy>
-            <Copy>It’s made possible by the TrustToken Protocol. You’ll hear more from us soon.</Copy>
+            <Header>When can I expect to see royalties?</Header>
+            <Copy>Because royalty payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</Copy>
           </Column>
         </TintedPanel>
         <VerticalPanel>
-          <Copy>Still curious about TrustToken?</Copy>
-          <RocketChatButton component={YellowButton} />
+          <Copy>Let’s build the tokenized creative economy...and make beautiful music together!</Copy>
+          {/* <RocketChatButton component={YellowButton} /> */}
         </VerticalPanel>
         <Footer>&copy; 2017 TrustToken Inc.</Footer>
       </div>
