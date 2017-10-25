@@ -72,7 +72,7 @@ const RocketChatButton = (props) => {
 const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: PropsType) => {
   const { handleSubmit, pristine, reset, submitting } = props.formProps;
   const deadline = moment().add(7, "days");
-  
+
   return (
     <DocumentTitle title={STRINGS.tokenName}>
       <div>
@@ -133,7 +133,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <Header>How much are the song royalties worth?</Header>
             <Copy>The pool of token holders will receive 50% of the songwriting royalties, while Taryn will receive the other 50%.</Copy>
             <Copy>Unless the song is a huge hit, royalties are likely to be small.🙂</Copy>
-            <Copy>This purpose of this experiment is to highlight how crypto currency can help solve issues of accounting and transparency for the artist community, as well as give people a first-hand look at how creative assets like music are produced, distributed, and ultimately, paid out to collaborators.</Copy>
+            <Copy>This purpose of this experiment is to highlight how blockchain-based ownership can help solve issues of accounting and transparency for the artist community, as well as give people a first-hand look at how creative assets like music are produced, distributed, and ultimately, paid out to collaborators.</Copy>
           </Column>
         </TintedPanel>
 
