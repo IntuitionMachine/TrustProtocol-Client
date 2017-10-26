@@ -19,7 +19,7 @@ import {
   SubHeading, DeliveryText, SignupForm, FormError,
   Button, Explanation, StyledLink,
   Panel, Column, Header, Copy, PanelImage,
-  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton, ImageWrapper, InnerImage, BorderlessPanel
+  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton, ImageWrapper, InnerImage, BorderlessPanel, DiagramImage
 } from "./LandingPageStyles";
 const STRINGS = {
   tokenName: "Token",
@@ -161,7 +161,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
         </TintedPanel>
 
         <BorderlessPanel>
-            <CalendarImage src="/images/diagram.png" />
+            <DiagramImage src="/images/diagram.png" />
         </BorderlessPanel>
 
         <Panel>

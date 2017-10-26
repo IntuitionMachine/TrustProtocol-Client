@@ -13,7 +13,7 @@ export const LandingWrapper = styled.div`
   padding: 150px 20px;
   ${media.phone`
     padding: 50px 20px;
-    padding-top: 130px;
+    padding-top: 30px;
   `}
 `;
 
@@ -32,7 +32,7 @@ export const Heading = styled.div`
   font-size: 100px;
   text-align: center;
 
-  ${media.phone`font-size:80px`}
+  ${media.phone`font-size:60px`}
 
 `;
 
@@ -59,7 +59,7 @@ export const SubHeading = styled.div`
   text-align: center;
   margin-top: 100px;
 
-  ${media.phone`font-size:30px; margin-top: 70px;`}
+  ${media.phone`font-size:30px; margin-top: 40px;`}
 `;
 
 export const DeliveryText = styled.div`
@@ -75,6 +75,8 @@ export const CountDownWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-flow: row wrap;
+
+  ${media.phone`margin-top: 40px;`}
 `;
 
 export const Button = styled.button`
@@ -170,6 +172,10 @@ export const SignupForm = styled.form`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  ${media.phone`
+    margin-top: 30px;
+  `}
 `;
 
 // Panel
@@ -248,10 +254,22 @@ export const CenteredCopy = Copy.extend`
 export const PanelImage = styled.img`
   width: 310px;
   padding: 0 40px;
+  ${media.tablet`
+    width: 250px;
+    padding: 0;
+  `}
+`;
+
+export const DiagramImage = PanelImage.extend`
+  width: 700px;
+  padding: 0px;
+  ${media.desktop`width: 600px;`}
+  ${media.tablet`width: 400px;`}
+  ${media.phone`width: 300px;`}
 `;
 
 export const CalendarImage = PanelImage.extend`
-  width: 280px;
+  width: 250px;
 `;
 
 export const LogoImage = PanelImage.extend`
