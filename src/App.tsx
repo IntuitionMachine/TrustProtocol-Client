@@ -8,8 +8,9 @@ import { ConfirmEmailPageWithMutations } from "./pages/ConfirmEmailPage/ConfirmE
 import { createStore, combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
+import { BalancePage } from "./pages/BalancePage/BalancePage";
 
-const {SERVER_URL, FOOBAR} = process.env;
+const { SERVER_URL, FOOBAR } = process.env;
 const networkInterface = createNetworkInterface({ uri: process.env.REACT_APP_SERVER_URL });
 const reduxDevtoolsMiddleware =
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__();
@@ -31,6 +32,7 @@ const Routes = () => (
     <Route exact={true} path="/" component={LandingPage} />
     <Route exact={true} path="/referrer/:referrerId" component={LandingPage} />
     <Route path="/confirm/:confirmationToken" component={ConfirmEmailPageWithMutations} />
+    <Route path="/balances/:ethereumAddress" component={BalancePage} />
   </div>
 );
 

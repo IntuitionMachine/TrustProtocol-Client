@@ -10,13 +10,21 @@ import {
   ReferralWrapper, SuccessWrapper, Heading,
   CoinWrapper, CoinImage, Copy, Address,
   Wrapper, ShareIcon, Referral, Message, StyledNumber
-} from "./ConfirmEmailPageStyles";
+} from "./BalancePageStyles";
 import { generateShareIcon } from "react-share";
 import { StyledFacebookButton, StyledTwitterButton, SocialMediaButtons } from "../../components/SocialMediaButtons";
 
 const TOKEN_COUNT_QUERY = gql`
 query {
   tokenCount {
+    count
+  }
+}
+`;
+
+const USER_TOKEN_BALANCE_QUERY = gql`
+query getTokenBalance($ethereumAddress: String!) {
+  userTokenBalance(ethereumAddress: $ethereumAddress) {
     count
   }
 }
@@ -62,77 +70,67 @@ const SuccessMessage = (props) => (
     <CoinWrapper>
       <CoinImage src="/images/coin.png" />
     </CoinWrapper>
-    <p>You've received <StyledNumber>1</StyledNumber> token!</p>
-    <Copy>A transfer has been initiated with Ethereum address <Address>{truncate(props.user.ethereumAddress)}</Address></Copy>
+    <p>You have <StyledNumber>{props.userTokenBalance}</StyledNumber> token!</p>
+    {<Copy>Your tokens are being transferred to Ethereum address <Address>{truncate(props.ethereumAddress)}</Address></Copy>}
     <Copy>Total tokens issued so far: <StyledNumber>{props.tokenCount}</StyledNumber></Copy>
 
     {/* <ReferralBox userId={props.user.id} /> */}
   </SuccessWrapper>
 );
 
-class ConfirmEmailPage extends React.Component<any, any> {
+class BalancePagePresentational extends React.Component<any, any> {
   public constructor(props: any) {
     super(props);
     this.state = {
       isLoading: true,
       hasError: false,
-      hasConfirmed: false,
       user: {},
     };
   }
 
-  public componentWillMount() {
-    this.props.confirmEmail({ variables: { confirmationToken: this.props.match.params.confirmationToken } })
-      .then((result) => {
-        if (result.data.confirmEmail && result.data.confirmEmail.id) {
-          const { id, email, ethereumAddress } = result.data.confirmEmail;
-          this.setState({
-            isLoading: false,
-            hasConfirmed: true,
-            user: { id, email, ethereumAddress },
-          });
-          this.props.history.replace(`/balances/${ethereumAddress}`);
-        } else {
-          this.setState({
-            isLoading: false,
-            hasError: true,
-          });
-        }
-      })
-      .catch((error) => {
-        this.setState({ hasError: true });
-      });
-  }
-
   public render() {
+    console.log("props", this.props);
     return (
       <Wrapper>
-        {this.state.hasError &&
-          <Message>Error! Invalid Code</Message>
+        {this.props.userTokenBalance.error &&
+          <Message>Oops! We can't find that Ethereum address.</Message>
+          // <SuccessMessage
+          //   user={{
+          //     id: "cj8yzvd1j8nt80126ic7ersqa",
+          //     email: "shadi@gmail.com",
+          //     ethereumAddress: "0x2837423749328423874324234324233333434343",
+          //   }}
+          //   tokenCount={340}
+          // />
         }
-        {this.state.isLoading && !this.state.hasError &&
-          <Message>Confirming your email...</Message>
-        }
-        {this.state.hasConfirmed && this.props.data.tokenCount &&
-          <Message>Email confirmed! Redirecting...</Message>
+        {!this.props.tokenCount.loading
+          && !this.props.tokenCount.error
+          && !this.props.userTokenBalance.loading
+          && !this.props.userTokenBalance.error
+          && <SuccessMessage
+            user={this.state.user}
+            tokenCount={this.props.tokenCount.tokenCount.count}
+            userTokenBalance={this.props.userTokenBalance.userTokenBalance.count}
+            ethereumAddress={this.props.match.params.ethereumAddress}
+          />
         }
       </Wrapper>
     );
   }
 }
 
-const confirmEmail = gql`
-mutation confirmEmail($confirmationToken: String!) {
-  confirmEmail(confirmationToken: $confirmationToken){
-    id
-    email
-    ethereumAddress
-  }
-}
-`;
-
-export const ConfirmEmailPageWithMutations = compose(
-  graphql(confirmEmail, { name: "confirmEmail" }),
-  graphql(TOKEN_COUNT_QUERY),
-  withRouter
-)(ConfirmEmailPage);
+export const BalancePage = compose(
+  withRouter,
+  graphql(TOKEN_COUNT_QUERY, { name: "tokenCount" }),
+  (Component) => (props) => {
+    const EnhancedComponent = graphql(USER_TOKEN_BALANCE_QUERY, {
+      name: "userTokenBalance",
+      options: {
+        variables: {
+          ethereumAddress: props.match.params.ethereumAddress,
+        },
+      },
+    })(Component);
+    return <EnhancedComponent {...props} />;
+  },
+)(BalancePagePresentational);
