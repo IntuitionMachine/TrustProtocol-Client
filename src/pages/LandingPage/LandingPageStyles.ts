@@ -188,6 +188,10 @@ export const Panel = styled.div`
   `}
 `;
 
+export const BorderlessPanel = Panel.extend`
+  border: none;
+`;
+
 export const VerticalPanel = Panel.extend`
   flex-direction: column;
 `;
@@ -223,6 +227,18 @@ export const Copy = styled.div`
   ${media.desktop`
     font-size: 20px;
   `}
+`;
+
+export const ImageWrapper = styled.div`
+  width: 350px;
+  height: 350px;
+  border-radius: 175px;
+  overflow: hidden;
+`;
+
+export const InnerImage = styled.img`
+  margin-top: -122px;
+  margin-left: -144px;
 `;
 
 export const CenteredCopy = Copy.extend`

@@ -19,7 +19,7 @@ import {
   SubHeading, DeliveryText, SignupForm, FormError,
   Button, Explanation, StyledLink,
   Panel, Column, Header, Copy, PanelImage,
-  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton
+  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton, ImageWrapper, InnerImage, BorderlessPanel
 } from "./LandingPageStyles";
 const STRINGS = {
   tokenName: "Token",
@@ -127,6 +127,18 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
 
         <TintedPanel>
           <Column>
+            <Header>Who is Taryn?</Header>
+            <Copy>Taryn is a singer-songwriter interested in connecting the music and blockchain worlds.</Copy>
+          </Column>
+          <Column>
+            <ImageWrapper>
+              <InnerImage src="/images/taryn.jpg" />
+            </ImageWrapper>
+          </Column>
+        </TintedPanel>
+
+        <Panel>
+          <Column>
             <PanelImage src="/images/redpiggy.png" />
           </Column>
           <Column>
@@ -135,9 +147,9 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <Copy>Unless the song is a huge hit, royalties are likely to be small.🙂</Copy>
             <Copy>This purpose of this experiment is to highlight how blockchain-based ownership can help solve issues of accounting and transparency for the artist community, as well as give people a first-hand look at how creative assets like music are produced, distributed, and ultimately, paid out to collaborators.</Copy>
           </Column>
-        </TintedPanel>
+        </Panel>
 
-        <Panel>
+        <TintedPanel>
           <Column>
             <Header>So how does this all work?</Header>
             <Copy>The song is held by a special legal entity called a “SmartTrust.” The SmartTrust is controlled and owned by an Ethereum smart contract which distributes ownership over the trust assets by issuing tokens. The trust, representing the ownership of the song, will distribute its share of song royalties to Ether and distribute it to the token-holder collaborators.</Copy>
@@ -146,9 +158,13 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
           <Column>
             <LogoImage src="/images/tt-logo.png" />
           </Column>
-        </Panel>
+        </TintedPanel>
 
-        <TintedPanel>
+        <BorderlessPanel>
+            <CalendarImage src="/images/diagram.png" />
+        </BorderlessPanel>
+
+        <Panel>
           <Column>
             <CalendarImage src="/images/calendar.png" />
           </Column>
@@ -156,11 +172,13 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <Header>When can I expect to see royalties?</Header>
             <Copy>Because royalty payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</Copy>
           </Column>
-        </TintedPanel>
+        </Panel>
+
         <VerticalPanel>
           <Copy>Let’s build the tokenized creative economy...and make beautiful music together!</Copy>
           {/* <RocketChatButton component={YellowButton} /> */}
         </VerticalPanel>
+
         <Footer>&copy; 2017 TrustToken Inc.</Footer>
       </div>
     </DocumentTitle>
