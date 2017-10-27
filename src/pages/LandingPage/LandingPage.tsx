@@ -19,11 +19,11 @@ import {
   SubHeading, DeliveryText, SignupForm, FormError,
   Button, Explanation, StyledLink,
   Panel, Column, Header, Copy, PanelImage,
-  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton, ImageWrapper, InnerImage, BorderlessPanel, DiagramImage
+  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton, ImageWrapper, InnerImage, BorderlessPanel, DiagramImage, LargeCopy, EthereumAddress
 } from "./LandingPageStyles";
 
 const STRINGS = {
-  tokenName: "Token",
+  tokenName: "Song Token",
 };
 
 const CREATE_USER_MUTATION = gql`
@@ -118,11 +118,10 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
         <Panel>
           <Column>
             <Header>What's this all about?</Header>
-            <Copy>Enter your public ethereum address, receive a token!</Copy>
+            <Copy>Enter your public Ethereum address, receive a song token!</Copy>
             <Copy>If you hold a token, you get access to a private collaboration network where you’ll contribute to writing the lyrics of a song alongside singer/songwriter Taryn Southern.</Copy>
             <Copy>In exchange, you’ll receive a percentage of the royalties of the song - created by you, the community - from sales and streams on iTunes, Spotify, and more.</Copy>
-          </Column>
-          <Column>
+          </Column> <Column>
             <PanelImage src="/images/music.png" />
           </Column>
         </Panel>
@@ -151,7 +150,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
           </Column>
         </Panel>
 
-        <Panel>
+        <TintedPanel>
           <Column>
             <Header>When can I expect to see royalties?</Header>
             <Copy>Because royalty payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</Copy>
@@ -159,9 +158,9 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
           <Column>
             <CalendarImage src="/images/calendar.png" />
           </Column>
-        </Panel>
+        </TintedPanel>
 
-        <TintedPanel>
+        <Panel>
           <Column>
             <LogoImage src="/images/tt-logo.png" />
           </Column>
@@ -169,15 +168,16 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <Header>So how does this all work?</Header>
             <Copy>The song is held by a special legal entity called a “SmartTrust.” The SmartTrust is controlled and owned by an Ethereum smart contract which distributes ownership over the trust assets by issuing tokens. The trust, representing the ownership of the song, will distribute its share of song royalties to Ether and distribute it to the token-holder collaborators.</Copy>
             <Copy>This experiment is done in collaboration with TrustToken, which builds technology that allows distributed, legally-enforceable ownership of real-world assets via the blockchain. We're distributing tokens for free in this experiment to gather feedback from the community and test the tokenization protocol.</Copy>
+            <Copy>The beneficial owner of the Crypto Song Trust is the smart contract at the Ethereum address <EthereumAddress>0x4BB301e545A3e948b20EA9A0F02D3948af6Fe6db</EthereumAddress>.</Copy>
           </Column>
-        </TintedPanel>
+        </Panel>
 
         <BorderlessPanel>
             <DiagramImage src="/images/diagram.png" />
         </BorderlessPanel>
 
         <VerticalPanel>
-          <Copy>Let’s build the tokenized creative economy...and make beautiful music together!</Copy>
+          <LargeCopy>Let’s build the tokenized creative economy...and make beautiful music together!</LargeCopy>
           {/* <RocketChatButton component={YellowButton} /> */}
         </VerticalPanel>
 
@@ -189,16 +189,16 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
 
 const LandingPage = compose(
   withRouter,
-  graphql(CREATE_USER_MUTATION, { name: "createUser" }),
+  graphql(CREATE_USER_MUTATION, { name:  "createUser" }),
   withState("submissionError", "setSubmissionError", undefined),
   withState("hasSucceeded", "setHasSucceeded", false),
   withState("newUser", "setNewUser", undefined),
   withHandlers({
     onSubmit: (props: any) => async ({ email, ethereumAddress }) => {
       props.setSubmissionError(undefined);
-      const { referrerId } = props.match.params; // can be undefined
+      const {referrerId} = props.match.params; // can be undefined
       try {
-        const result = await props.createUser({ variables: { email, ethereumAddress, referrerId } });
+        const result = await props.createUser({variables: {email, ethereumAddress, referrerId } });
         props.setNewUser(result.data.createUser);
         props.setHasSucceeded(true);
       } catch (error) {
@@ -206,7 +206,7 @@ const LandingPage = compose(
       }
     },
   }),
-  reduxForm({ propNamespace: "formProps", form: "signupForm" }),
+  reduxForm({propNamespace: "formProps", form: "signupForm" }),
 )(LandingPagePresentational);
 
-export { LandingPage };
+export {LandingPage};

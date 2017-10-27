@@ -237,18 +237,37 @@ export const Copy = styled.div`
   `}
 `;
 
+export const LargeCopy = Copy.extend`
+  font-size: 30px;
+`;
+
+export const EthereumAddress = styled.span`
+  font-family: Inconsolata;
+  ${media.phone`font-size: 14px;`}
+`;
+
 export const ImageWrapper = styled.div`
   width: 350px;
   height: 350px;
   border-radius: 175px;
   overflow: hidden;
+  ${media.phone`
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+  `}
 `;
 
 export const InnerImage = styled.img`
   margin-top: -4px;
   margin-left: -145px;
   width: 647px;
-}
+
+  ${media.phone`
+    margin-top: -1px;
+    margin-left: -118px;
+    width: 548px;
+  `}
 `;
 
 export const CenteredCopy = Copy.extend`
