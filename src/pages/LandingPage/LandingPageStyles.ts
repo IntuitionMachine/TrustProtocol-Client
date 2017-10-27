@@ -10,7 +10,7 @@ export const COLORS = {
 
 // Landing
 export const LandingWrapper = styled.div`
-  padding: 100px 20px;
+  padding: 130px 20px;
   ${media.phone`
     padding: 50px 20px;
     padding-top: 30px;
@@ -57,6 +57,8 @@ export const StyledLink = styled.a`
 export const SubHeading = styled.div`
   font-size: 60px;
   text-align: center;
+  max-width: 790px;
+  margin: 0 auto;
 
   ${media.phone`font-size:30px;`}
 `;
@@ -166,7 +168,7 @@ export const CenteredImg = styled.img`
 `;
 
 export const SignupForm = styled.form`
-  margin-top: 100px;
+  margin-top: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
