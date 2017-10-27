@@ -173,7 +173,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
         </Panel>
 
         <BorderlessPanel>
-            <DiagramImage src="/images/diagram.png" />
+            <DiagramImage src="/images/new-diagram.png" style={{maxWidth: "1400px", width: "100%"}}/>
         </BorderlessPanel>
 
         <VerticalPanel>
