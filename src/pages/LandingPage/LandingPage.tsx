@@ -18,7 +18,7 @@ import {
   FieldError, Input, Heading, CountDownWrapper,
   SubHeading, DeliveryText, SignupForm, FormError,
   Button, Explanation, StyledLink,
-  Panel, Column, Header, Copy, PanelImage,
+  Panel, Column, LightHeader, Header, LightCopy, Copy, PanelImage,
   CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton, ImageWrapper, InnerImage, BorderlessPanel, DiagramImage, LargeCopy, EthereumAddress
 } from "./LandingPageStyles";
 
@@ -128,8 +128,8 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
 
         <TintedPanel>
           <Column>
-            <Header>Who is Taryn?</Header>
-            <Copy>Taryn Southern is a digital storyteller and songwriter curious about how blockchain-based ownership can enable greater transparency and efficiency across collaborations in the music and media industry.</Copy>
+            <LightHeader>Who is Taryn?</LightHeader>
+            <LightCopy>Taryn Southern is a digital storyteller and songwriter curious about how blockchain-based ownership can enable greater transparency and efficiency across collaborations in the music and media industry.</LightCopy>
           </Column>
           <Column>
             <ImageWrapper>
@@ -152,8 +152,8 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
 
         <TintedPanel>
           <Column>
-            <Header>When can I expect to see royalties?</Header>
-            <Copy>Because royalty payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</Copy>
+            <LightHeader>When can I expect to see royalties?</LightHeader>
+            <LightCopy>Because royalty payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</LightCopy>
           </Column>
           <Column>
             <CalendarImage src="/images/calendar.png" />
