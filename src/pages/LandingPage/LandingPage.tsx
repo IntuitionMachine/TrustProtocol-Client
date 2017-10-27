@@ -129,7 +129,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
         <TintedPanel>
           <Column>
             <LightHeader>Who is Taryn?</LightHeader>
-            <LightCopy>Taryn Southern is a digital storyteller and songwriter curious about how blockchain-based ownership can enable greater transparency and efficiency across collaborations in the music and media industry.</LightCopy>
+            <LightCopy>Taryn Southern is a digital storyteller and songwriter interested in how blockchain-based ownership can enable greater transparency and efficiency across collaborations in the music and media industry.</LightCopy>
           </Column>
           <Column>
             <ImageWrapper>

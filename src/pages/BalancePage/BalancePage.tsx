@@ -72,7 +72,7 @@ const SuccessMessage = (props) => (
     </CoinWrapper>
     <p>You have <StyledNumber>{props.userTokenBalance}</StyledNumber> token!</p>
     {<Copy>Your tokens are being transferred to Ethereum address <Address>{truncate(props.ethereumAddress)}</Address></Copy>}
-    <Copy>Total tokens issued so far: <StyledNumber>{props.tokenCount}</StyledNumber></Copy>
+    <Copy>Total song tokens issued so far: <StyledNumber>{props.tokenCount}</StyledNumber></Copy>
 
     {/* <ReferralBox userId={props.user.id} /> */}
   </SuccessWrapper>
