@@ -56,6 +56,8 @@ export const StyledLink = styled.a`
 
 export const SubHeading = styled.div`
   font-size: 60px;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
   text-align: center;
   max-width: 790px;
   margin: 0 auto;
@@ -81,14 +83,18 @@ export const CountDownWrapper = styled.div`
 `;
 
 export const Button = styled.button`
-  background: none;
-  outline: none;
-  width: 310px;
-  height: 55px;
-  border: 1px solid ${COLORS.text};
-  color: ${COLORS.text};
-  font-size: 15px;
+  padding: 15px 35px;
+  font-size: 16px;
   text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #54b0fa;
+  color: ${COLORS.text};
+  outline: none;
+  height: 55px;
+  border: none;
+  box-shadow: 3px 5.2px 16px 0 #323674;
   cursor: pointer;
   margin-top: 40px;
 
@@ -190,7 +196,7 @@ export const Panel = styled.div`
 
   ${media.desktop`
     flex-direction: column;
-    text-align: center; 
+    text-align: center;
     padding: 40px 40px;
   `}
 `;
@@ -205,8 +211,7 @@ export const VerticalPanel = Panel.extend`
 `;
 
 export const TintedPanel = Panel.extend`
-  background-image: linear-gradient(to bottom,rgba(108,206,236,0.15),rgba(255,255,255,0));
-  background-color: white !important;
+  background: linear-gradient(to right bottom,#2f1847,#361f51,#5d3b7b,#a966ae);
 `;
 
 export const Column = styled.div`
@@ -217,7 +222,21 @@ export const Column = styled.div`
 
 export const Header = styled.div`
   font-size: 40px;
-  color: #28304f;
+  font-weight: bold;
+  color: #1b2c3f;
+  ${media.desktop`
+    font-size: 50px;
+  `}
+
+  ${media.phone`
+    font-size: 40px;
+  `}
+`;
+
+export const LightHeader = styled.div`
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
   ${media.desktop`
     font-size: 50px;
   `}
@@ -228,9 +247,31 @@ export const Header = styled.div`
 `;
 
 export const Copy = styled.div`
-  color: rgb(78, 78, 78);
-  font-size: 18px;
   margin-top: 25px;
+  color: #6b7c93;
+  font-size: 20px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.49em;
+  margin: 15px 0;
+  text-align: left;
+
+  ${media.desktop`
+    font-size: 20px;
+  `}
+`;
+
+export const LightCopy = styled.div`
+  margin-top: 25px;
+  color: #d1c1e1;
+  font-size: 20px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.49em;
+  margin: 15px 0;
+  text-align: left;
 
   ${media.desktop`
     font-size: 20px;
@@ -277,6 +318,15 @@ export const CenteredCopy = Copy.extend`
 export const PanelImage = styled.img`
   width: 310px;
   padding: 0 40px;
+  animation: floating 1.8s linear alternate infinite;
+  @keyframes floating {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(25px);
+    }
+  }
   ${media.tablet`
     width: 250px;
     padding: 0;
@@ -284,6 +334,7 @@ export const PanelImage = styled.img`
 `;
 
 export const DiagramImage = PanelImage.extend`
+  animation: none !important;
   width: 700px;
   padding: 0px;
   ${media.desktop`width: 600px;`}
