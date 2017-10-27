@@ -79,7 +79,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
       <div>
         <LandingWrapper>
           {/* <RocketChatButton component={TopClearButton} /> */}
-          <Heading>Join the Frontier</Heading>
+          {/* <Heading>Join the Frontier</Heading> */}
           <SubHeading>Help us create the world's first tokenized, collaborative song.</SubHeading>
           <CountDownWrapper>
             <DeliveryText>Experiment ends in</DeliveryText>

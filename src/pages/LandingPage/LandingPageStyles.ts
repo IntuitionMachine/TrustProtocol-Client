@@ -10,7 +10,7 @@ export const COLORS = {
 
 // Landing
 export const LandingWrapper = styled.div`
-  padding: 150px 20px;
+  padding: 100px 20px;
   ${media.phone`
     padding: 50px 20px;
     padding-top: 30px;
@@ -55,11 +55,10 @@ export const StyledLink = styled.a`
 `;
 
 export const SubHeading = styled.div`
-  font-size: 40px;
+  font-size: 60px;
   text-align: center;
-  margin-top: 100px;
 
-  ${media.phone`font-size:30px; margin-top: 40px;`}
+  ${media.phone`font-size:30px;`}
 `;
 
 export const DeliveryText = styled.div`
