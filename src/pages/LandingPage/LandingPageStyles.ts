@@ -220,10 +220,10 @@ export const Column = styled.div`
 
 `;
 
-export const Header = styled.div`
+export const Header: any = styled.div`
   font-size: 40px;
   font-weight: bold;
-  color: #1b2c3f;
+  color: ${(props: any) => {return !props.isLight ? "#1b2c3f" : "white"; }};
   ${media.desktop`
     font-size: 50px;
   `}
@@ -233,38 +233,10 @@ export const Header = styled.div`
   `}
 `;
 
-export const LightHeader = styled.div`
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-  ${media.desktop`
-    font-size: 50px;
-  `}
-
-  ${media.phone`
-    font-size: 40px;
-  `}
-`;
-
-export const Copy = styled.div`
+export const Copy: any = styled.div`
   margin-top: 25px;
   color: #6b7c93;
-  font-size: 20px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.49em;
-  margin: 15px 0;
-  text-align: left;
-
-  ${media.desktop`
-    font-size: 20px;
-  `}
-`;
-
-export const LightCopy = styled.div`
-  margin-top: 25px;
-  color: #d1c1e1;
+  color: ${(props: any) => {return !props.isLight ? "#6b7c93" : "#d1c1e1"; }};
   font-size: 20px;
   font-stretch: normal;
   font-style: normal;
@@ -278,7 +250,7 @@ export const LightCopy = styled.div`
   `}
 
   a {
-    color: white;
+    color: ${(props: any) => {return !props.isLight ? "#6b7c93" : "white"; }};
   }
 `;
 
