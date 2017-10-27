@@ -195,6 +195,7 @@ export const Panel = styled.div`
 `;
 
 export const BorderlessPanel = Panel.extend`
+  padding-top: 0px;
   border: none;
 `;
 
@@ -243,8 +244,10 @@ export const ImageWrapper = styled.div`
 `;
 
 export const InnerImage = styled.img`
-  margin-top: -122px;
-  margin-left: -144px;
+  margin-top: -4px;
+  margin-left: -145px;
+  width: 647px;
+}
 `;
 
 export const CenteredCopy = Copy.extend`

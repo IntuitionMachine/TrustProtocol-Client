@@ -21,6 +21,7 @@ import {
   Panel, Column, Header, Copy, PanelImage,
   CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton, ImageWrapper, InnerImage, BorderlessPanel, DiagramImage
 } from "./LandingPageStyles";
+
 const STRINGS = {
   tokenName: "Token",
 };
@@ -71,7 +72,7 @@ const RocketChatButton = (props) => {
 
 const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: PropsType) => {
   const { handleSubmit, pristine, reset, submitting } = props.formProps;
-  const deadline = moment().add(7, "days");
+  const deadline = moment("11/01/2017 23:59", "MM/DD/YYYY HH:mm");
 
   return (
     <DocumentTitle title={STRINGS.tokenName}>
@@ -117,8 +118,9 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
         <Panel>
           <Column>
             <Header>What's this all about?</Header>
-            <Copy>Your tokens give you a percentage of ownership of a song created by you, the community, and Taryn.</Copy>
-            <Copy>If you hold a token, you get access to a private collaboration network where you’ll contribute to writing the lyrics of a song, and in exchange, you’ll receive of royalties from revenue streams of the song, such as sales on iTunes, streams on Spotify, and more.</Copy>
+            <Copy>Enter your public ethereum address, receive a token!</Copy>
+            <Copy>If you hold a token, you get access to a private collaboration network where you’ll contribute to writing the lyrics of a song alongside singer/songwriter Taryn Southern.</Copy>
+            <Copy>In exchange, you’ll receive a percentage of the royalties of the song - created by you, the community - from sales and streams on iTunes, Spotify, and more.</Copy>
           </Column>
           <Column>
             <PanelImage src="/images/music.png" />
@@ -128,11 +130,11 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
         <TintedPanel>
           <Column>
             <Header>Who is Taryn?</Header>
-            <Copy>Taryn is a singer-songwriter interested in connecting the music and blockchain worlds.</Copy>
+            <Copy>Taryn Southern is a digital storyteller and songwriter curious about how blockchain-based ownership can enable greater transparency and efficiency across collaborations in the music and media industry.</Copy>
           </Column>
           <Column>
             <ImageWrapper>
-              <InnerImage src="/images/taryn.jpg" />
+              <InnerImage src="/images/taryn2.jpg" />
             </ImageWrapper>
           </Column>
         </TintedPanel>
@@ -143,36 +145,36 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
           </Column>
           <Column>
             <Header>How much are the song royalties worth?</Header>
-            <Copy>The pool of token holders will receive 50% of the songwriting royalties, while Taryn will receive the other 50%.</Copy>
-            <Copy>Unless the song is a huge hit, royalties are likely to be small.🙂</Copy>
-            <Copy>This purpose of this experiment is to highlight how blockchain-based ownership can help solve issues of accounting and transparency for the artist community, as well as give people a first-hand look at how creative assets like music are produced, distributed, and ultimately, paid out to collaborators.</Copy>
+            <Copy>The pool of token holders will receive 50% of the songwriting royalties, and Taryn will receive the other 50%.</Copy>
+            <Copy>Unless the song is a huge hit, royalties are likely to be small. 🙂</Copy>
+            <Copy>This purpose of this experiment is to highlight how blockchain-based ownership can help solve issues of accounting and transparency for the artist community, as well as give people a first-hand look at how creative assets like music are produced, distributed, and paid out to collaborators.</Copy>
+          </Column>
+        </Panel>
+
+        <Panel>
+          <Column>
+            <Header>When can I expect to see royalties?</Header>
+            <Copy>Because royalty payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</Copy>
+          </Column>
+          <Column>
+            <CalendarImage src="/images/calendar.png" />
           </Column>
         </Panel>
 
         <TintedPanel>
           <Column>
+            <LogoImage src="/images/tt-logo.png" />
+          </Column>
+          <Column>
             <Header>So how does this all work?</Header>
             <Copy>The song is held by a special legal entity called a “SmartTrust.” The SmartTrust is controlled and owned by an Ethereum smart contract which distributes ownership over the trust assets by issuing tokens. The trust, representing the ownership of the song, will distribute its share of song royalties to Ether and distribute it to the token-holder collaborators.</Copy>
             <Copy>This experiment is done in collaboration with TrustToken, which builds technology that allows distributed, legally-enforceable ownership of real-world assets via the blockchain. We're distributing tokens for free in this experiment to gather feedback from the community and test the tokenization protocol.</Copy>
-          </Column>
-          <Column>
-            <LogoImage src="/images/tt-logo.png" />
           </Column>
         </TintedPanel>
 
         <BorderlessPanel>
             <DiagramImage src="/images/diagram.png" />
         </BorderlessPanel>
-
-        <Panel>
-          <Column>
-            <CalendarImage src="/images/calendar.png" />
-          </Column>
-          <Column>
-            <Header>When can I expect to see royalties?</Header>
-            <Copy>Because royalty payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</Copy>
-          </Column>
-        </Panel>
 
         <VerticalPanel>
           <Copy>Let’s build the tokenized creative economy...and make beautiful music together!</Copy>
