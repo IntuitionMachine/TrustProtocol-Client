@@ -276,6 +276,10 @@ export const LightCopy = styled.div`
   ${media.desktop`
     font-size: 20px;
   `}
+
+  a {
+    color: white;
+  }
 `;
 
 export const LargeCopy = Copy.extend`
