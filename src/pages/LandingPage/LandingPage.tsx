@@ -14,7 +14,7 @@ import { CountDown } from "../../components/CountDown";
 import DocumentTitle = require("react-document-title");
 import { CopyLink } from "../../components/CopyLink";
 import {
-  InputWrapper, InputLabel, LandingWrapper,
+  InputWrapper, InputLabel, LandingWrapper, WhiteLink,
   FieldError, Input, Heading, CountDownWrapper,
   SubHeading, DeliveryText, SignupForm, FormError,
   Button, Explanation, StyledLink,
@@ -181,7 +181,19 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
           {/* <RocketChatButton component={YellowButton} /> */}
         </VerticalPanel>
 
-        <Footer>&copy; 2017 TrustToken Inc.</Footer>
+        <Footer>
+          <div className="container">
+          <div className="row">
+          <div className="col-sm-6">
+            &copy; 2017 TrustToken Inc.
+          </div>
+          <div className="col-sm-6">
+             <WhiteLink href="mailto:hello@trusttoken.com" target="_top"> hello@trusttoken.com </WhiteLink>
+          </div>
+          </div>
+          </div>
+
+        </Footer>
       </div>
     </DocumentTitle>
   );

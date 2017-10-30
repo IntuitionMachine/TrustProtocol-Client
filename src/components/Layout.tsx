@@ -3,7 +3,7 @@
  */
 import * as React from "react";
 import styled from "styled-components";
-// import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 
 export class Layout extends React.Component {

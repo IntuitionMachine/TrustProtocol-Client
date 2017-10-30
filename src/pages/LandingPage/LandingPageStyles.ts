@@ -54,6 +54,17 @@ export const StyledLink = styled.a`
   cursor: pointer;
 `;
 
+export const WhiteLink = styled.a`
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  float: right;
+  &:hover {
+    color: white;
+    cursor: pointer;
+  }
+`;
+
 export const SubHeading = styled.div`
   font-size: 60px;
   font-weight: bold;
