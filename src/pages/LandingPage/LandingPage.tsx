@@ -120,7 +120,7 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <Header>What's this all about?</Header>
             <Copy>Enter your public Ethereum address, receive a song token!</Copy>
             <Copy>If you hold a token, you get access to a private collaboration network where you’ll contribute to writing the lyrics of a song alongside singer/songwriter Taryn Southern.</Copy>
-            <Copy>In exchange, you’ll receive a percentage of the royalties of the song - created by you, the community - from sales and streams on iTunes, Spotify, and more.</Copy>
+            <Copy>In exchange, you’ll receive a percentage of the revenue of the song - created by you, the community - from sales and streams on iTunes, Spotify, and more.</Copy>
           </Column> <Column>
             <PanelImage src="/images/music.png" />
           </Column>
@@ -143,17 +143,17 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <PanelImage src="/images/redpiggy.png" />
           </Column>
           <Column>
-            <Header>How much are the song royalties worth?</Header>
-            <Copy>The pool of token holders will receive 50% of the songwriting royalties, and Taryn will receive the other 50%.</Copy>
-            <Copy>Unless the song is a huge hit, royalties are likely to be small. 🙂</Copy>
+            <Header>How is the song worth?</Header>
+            <Copy>The pool of token holders will receive 50% of the songwriting revenue, and Taryn will receive the other 50%.</Copy>
+            <Copy>Unless the song is a huge hit, revenue is likely to be small. 🙂</Copy>
             <Copy>This purpose of this experiment is to highlight how blockchain-based ownership can help solve issues of accounting and transparency for the artist community, as well as give people a first-hand look at how creative assets like music are produced, distributed, and paid out to collaborators.</Copy>
           </Column>
         </Panel>
 
         <TintedPanel>
           <Column>
-            <Header isLight={true}>When can I expect to see royalties?</Header>
-            <Copy isLight={true}>Because royalty payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</Copy>
+            <Header isLight={true}>When can I expect to get paid?</Header>
+            <Copy isLight={true}>Because payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</Copy>
           </Column>
           <Column>
             <CalendarImage src="/images/calendar.png" />
