@@ -143,16 +143,16 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <PanelImage src="/images/redpiggy.png" />
           </Column>
           <Column>
-            <Header>How is the song worth?</Header>
+            <Header>How much will the song's revenue be worth?</Header>
             <Copy>The pool of token holders will receive 50% of the songwriting revenue, and Taryn will receive the other 50%.</Copy>
-            <Copy>Unless the song is a huge hit, revenue is likely to be small. 🙂</Copy>
+            <Copy>Unless the song is a huge hit, its revenue is likely to be small. 🙂</Copy>
             <Copy>This purpose of this experiment is to highlight how blockchain-based ownership can help solve issues of accounting and transparency for the artist community, as well as give people a first-hand look at how creative assets like music are produced, distributed, and paid out to collaborators.</Copy>
           </Column>
         </Panel>
 
         <TintedPanel>
           <Column>
-            <Header isLight={true}>When can I expect to get paid?</Header>
+            <Header isLight={true}>When can I expect to get part of the revenue?</Header>
             <Copy isLight={true}>Because payments for music are dispersed differently from distributors, the simplest way to provide accounting for this project is at the beginning of the calendar year, with a two year cap.</Copy>
           </Column>
           <Column>
