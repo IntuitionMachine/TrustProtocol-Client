@@ -4,10 +4,82 @@ body {
   font-family: 'Roboto';
   color: white;
   background: #6a0870; /* fallback for old browsers */
-  background: linear-gradient(to right top,#131c47,#192152,#62418e,#ac93d2); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right top,#131c47,#192152,#62418e,#ac93d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right top,#131c47,#192152,#512888,#9369d4);
 }
 
 html {
   height: 100%;
+}
+
+nav .logo img {
+    width: 160px;
+}
+
+nav {
+  padding: 2.7vw;
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 2.7vw 2.7vw 1vw 2.7vw;
+  }
+}
+nav .logo {
+  height: auto;
+  position: absolute;
+}
+nav .logo span img {
+  width: 160px;
+}
+@media screen and (max-width: 768px) {
+  nav .logo {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  nav {
+    display: block;
+    margin: 0 auto;
+  }
+}
+nav .links-container {
+  text-align: right;
+  padding-top: 14px;
+}
+nav .links-container a {
+  font-weight: 400;
+  color: #cbd5f1;
+  margin-left: 20px;
+  font-size: 16px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  -webkit-transition: color 200ms ease-in-out;
+  -moz-transition: color 200ms ease-in-out;
+  -o-transition: color 200ms ease-in-out;
+  -ms-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+nav .links-container a:first-child {
+  margin-left: none;
+}
+nav .links-container a:hover {
+  border-bottom: 1px solid #62abf4;
+  color: #fff;
+  text-decoration: none;
+}
+nav .links-container a.email-link {
+  border-bottom: 1px solid #62abf4;
+}
+@media screen and (max-width: 768px) {
+  nav .logo {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 18px;
+  }
+  nav .links-container {
+    text-align: center;
+    line-height: 32px;
+    font-size: 18px;
+    margin-top: 16px;
+  }
 }

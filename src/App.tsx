@@ -10,7 +10,7 @@ import { reducer as formReducer } from "redux-form";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
 import { BalancePage } from "./pages/BalancePage/BalancePage";
 
-const { SERVER_URL, FOOBAR } = process.env;
+const { SERVER_URL } = process.env;
 const networkInterface = createNetworkInterface({ uri: process.env.REACT_APP_SERVER_URL });
 const reduxDevtoolsMiddleware =
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__();
