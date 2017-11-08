@@ -269,9 +269,15 @@ export const LargeCopy = Copy.extend`
   font-size: 30px;
 `;
 
-export const EthereumAddress = styled.span`
+export const LargeStyledItem = styled.span`
   font-family: Inconsolata;
   ${media.phone`font-size: 14px;`}
+`;
+
+export const LargeStyledLink = styled.a`
+  font-family: Inconsolata;
+  ${media.phone`font-size: 14px;`}
+  text-decoration: underline;
 `;
 
 export const ImageWrapper = styled.div`

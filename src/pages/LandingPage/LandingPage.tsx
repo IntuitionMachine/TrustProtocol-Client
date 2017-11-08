@@ -19,7 +19,7 @@ import {
   SubHeading, DeliveryText, SignupForm, FormError,
   Button, Explanation, StyledLink,
   Panel, Column, Header, Copy, PanelImage,
-  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton, ImageWrapper, InnerImage, BorderlessPanel, DiagramImage, LargeCopy, EthereumAddress
+  CalendarImage, TintedPanel, Footer, ConfirmEmail, LogoImage, VerticalPanel, YellowButton, TopClearButton, ImageWrapper, InnerImage, BorderlessPanel, DiagramImage, LargeCopy, LargeStyledItem, LargeStyledLink
 } from "./LandingPageStyles";
 
 const STRINGS = {
@@ -168,7 +168,8 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
             <Header>So how does this all work?</Header>
             <Copy>The song is held by a special legal entity called a “SmartTrust.” The SmartTrust is controlled and owned by an Ethereum smart contract which distributes ownership over the trust assets by issuing tokens. The trust, representing the ownership of the song, will distribute its share of song royalties to Ether and distribute it to the token-holder collaborators.</Copy>
             <Copy>This experiment is done in collaboration with TrustToken, which builds technology that allows distributed, legally-enforceable ownership of real-world assets via the blockchain. We're distributing tokens for free in this experiment to gather feedback from the community and test the tokenization protocol.</Copy>
-            <Copy>The beneficial owner of the Crypto Song Trust is the smart contract at the Ethereum address <EthereumAddress>0x4BB301e545A3e948b20EA9A0F02D3948af6Fe6db</EthereumAddress>.</Copy>
+            <Copy>The beneficial owner of the Crypto Song Trust is the smart contract at the Ethereum address <LargeStyledItem>0x4BB301e545A3e948b20EA9A0F02D3948af6Fe6db</LargeStyledItem>.</Copy>
+            <Copy>You can view the distributions of the Crypto Song’s tokens <LargeStyledLink href="https://etherscan.io/address/0x4bb301e545a3e948b20ea9a0f02d3948af6fe6db" target="_blank"> here</LargeStyledLink>.</Copy>
           </Column>
         </Panel>
 
