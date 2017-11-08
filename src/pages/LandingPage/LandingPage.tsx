@@ -105,9 +105,10 @@ const LandingPagePresentational: React.StatelessComponent<PropsType> = (props: P
                 validate={[required, ethereumAddress]}
               />
               <Explanation>
-                Don't have an Ethereum address yet? Set one up <StyledLink target="_blank" href="https://www.myetherwallet.com/">here</StyledLink>.
+                Don't have an Ethereum address yet? Set one up <StyledLink target="_blank" href="https://www.myetherwallet.com/">here</StyledLink>,
+                <br/>
+                then copy and paste the <strong>public</strong> key into this form.
             </Explanation>
-
               <Button type="submit">
                 {submitting ? "Submitting..." : `Get Your Free ${STRINGS.tokenName}`}
               </Button>

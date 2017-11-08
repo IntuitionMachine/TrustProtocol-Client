@@ -72,6 +72,9 @@ const SuccessMessage = (props) => (
     </CoinWrapper>
     <p>You have <StyledNumber>{props.userTokenBalance}</StyledNumber> token!</p>
     {<Copy>Your tokens are being transferred to Ethereum address <Address>{truncate(props.ethereumAddress)}</Address></Copy>}
+    <Copy>Check your email inbox for an email from noreply@trusttoken.com.</Copy>
+    <Copy>You will receive an invite to the collaborative chat group to create the song after the token distribution closes on November 11.</Copy>
+    <Copy> In the meantime, share this with your friends so they can join the project, too!</Copy>
     <Copy>Total song tokens issued so far: <StyledNumber>{props.tokenCount}</StyledNumber></Copy>
 
     {/* <ReferralBox userId={props.user.id} /> */}

@@ -43,7 +43,7 @@ export const ConfirmEmail = styled.div`
 `;
 
 export const Explanation = styled.div`
-  margin-top: 10px;
+  margin-top: 30px;
   font-size: 14px;
 `;
 
