@@ -62,7 +62,6 @@ nav .links-container a:first-child {
   margin-left: none;
 }
 nav .links-container a:hover {
-  border-bottom: 1px solid #62abf4;
   color: #fff;
   text-decoration: none;
 }
@@ -82,4 +81,45 @@ nav .links-container a.email-link {
     font-size: 18px;
     margin-top: 16px;
   }
+}
+
+.social-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 22px;
+  border: 2px solid rgba(255,255,255,0.2);
+  display: inline-block;
+  height: 38px;
+  pointer: cursor;
+  -webkit-transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  width: 38px;
+  margin-bottom: -15px;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  margin-left: -10px;
+}
+.social-icon:hover {
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+}
+.twitter {
+  background-image: url("/images/twitter.svg");
+}
+.facebook {
+  background-image: url("/images/facebook.svg");
+}
+.github-social {
+  background-image: url("/images/github-social.svg");
+}
+.email {
+  background-image: url("/images/email-icon.svg");
 }

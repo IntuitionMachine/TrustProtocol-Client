@@ -19,6 +19,10 @@ export class Header extends React.Component {
                 <a href={`${TRUST_TOKEN_URL}`} target="_blank">Home</a>
                 <a href="https://blog.trusttoken.com/" target="_blank">Blog</a>
                 <a href="mailto:hello@trusttoken.com" className="email-link">hello@trusttoken.com</a>
+                <a href="https://twitter.com/TrustToken" target="_blank"><div className="social-icon twitter"/></a>
+                <a href="https://www.facebook.com/TrustToken/?fref=ts" target="_blank"><div className="social-icon facebook"/></a>
+                <a href="https://github.com/trusttoken"><div className="social-icon github-social"/></a>
+                <a href="mailto:hello@trusttoken.com"><div className="social-icon email"/></a>
             </div>
             </div>
         </nav>
