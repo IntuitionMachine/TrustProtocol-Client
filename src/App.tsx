@@ -15,6 +15,7 @@ const networkInterface = createNetworkInterface({ uri: process.env.REACT_APP_SER
 const reduxDevtoolsMiddleware =
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__();
 
+// The ApolloClient connects to the Apollo server and caches the fetched GQL data
 const client = new ApolloClient({
   networkInterface,
   dataIdFromObject: (o: { id: string }) => o.id,
