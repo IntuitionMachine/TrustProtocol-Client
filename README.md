@@ -1,4 +1,4 @@
-This is the client code for Taryn Token's [signup page](http://taryn.trusttoken.com/). It was created using [Create React App](https://github.com/facebookincubator/create-react-app).
+This is the client code for applications on the TrustToken platform like [Taryn Token](http://taryn.trusttoken.com/). See [TrustProtocol-Server](https://github.com/trusttoken/TrustProtocol-Server) for the backend.
 
 ## Instructions
 ```
