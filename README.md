@@ -1,3 +1,4 @@
+# TrustProtocol-Client
 This is the client code for applications on the TrustToken platform like [Taryn Token](http://taryn.trusttoken.com/). See [TrustProtocol-Server](https://github.com/trusttoken/TrustProtocol-Server) for the backend.
 
 ## Instructions
