@@ -1,5 +1,10 @@
 import * as SHA3 from "crypto-js/sha3";
 
+/**
+ * This file contains a set of form validators
+ * Each returns undefined if there is no error, and a string with the error message if there is an error.
+ */
+
 const sha3 = (value) => {
   return SHA3(value, {
     outputLength: 256,
